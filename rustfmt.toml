@@ -1,0 +1,20 @@
+# Algotics — rustfmt style (stable options only)
+# Run: cargo fmt
+# Unstable options require nightly and: unstable_features = true
+
+# Line width — 100 is Rust default; 80 is stricter for narrow screens
+max_width = 100
+
+# Prefer keeping short blocks on one line (fewer unnecessary line breaks)
+# "Default" = balanced, "Max" = more single-line, "Off" = always respect width thresholds
+use_small_heuristics = "Max"
+
+# Sort and group imports alphabetically (recommended for consistency)
+reorder_imports = true
+
+# Optional: tune when to break chains/arrays/struct literals (defaults follow use_small_heuristics).
+# Uncomment and adjust if you want stricter or looser wrapping:
+# chain_width = 60
+# array_width = 60
+# struct_lit_width = 60
+# fn_call_width = 60

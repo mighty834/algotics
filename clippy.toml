@@ -1,0 +1,44 @@
+# Algotics — Clippy lint configuration
+# Run: cargo clippy
+# Lint levels (allow/warn/deny) go in Cargo.toml [lints.clippy] or via attributes/flags.
+
+# -----------------------------------------------------------------------------
+# Test-friendly: allow common patterns in #[test] and #[cfg(test)] code
+# -----------------------------------------------------------------------------
+# Unwrap/expect/dbg/panic/print are convenient in tests; enable if you want stricter tests.
+allow-unwrap-in-tests = true
+allow-expect-in-tests = true
+allow-dbg-in-tests = true
+allow-panic-in-tests = true
+allow-print-in-tests = true
+# Indexing and vec! in tests (e.g. test_case!(vec![1,2,3], ...)) are normal
+allow-indexing-slicing-in-tests = true
+allow-useless-vec-in-tests = true
+
+# -----------------------------------------------------------------------------
+# Naming: short names common in algorithms (i, j, k, n, nums, etc.)
+# -----------------------------------------------------------------------------
+# Extend default ["i", "j", "x", "y", "z", "w", "n"] so min_ident_chars doesn't complain
+allowed-idents-below-min-chars = ["k", ".."]
+
+# -----------------------------------------------------------------------------
+# Complexity and size thresholds (optional tweaks)
+# -----------------------------------------------------------------------------
+# Max cognitive complexity per function (default 25); algo code can be a bit denser
+cognitive-complexity-threshold = 30
+
+# -----------------------------------------------------------------------------
+# Module / doc conventions
+# -----------------------------------------------------------------------------
+# Allow items that share the module name (e.g. rotate_array module with rotate_array_tests)
+allow-exact-repetitions = true
+
+# Doc comments often reference "LeetCode", "O(n)", etc. — don't require backticks
+doc-valid-idents = ["LeetCode", "O(1)", "O(n)", ".."]
+
+# -----------------------------------------------------------------------------
+# Uncomment to tune further (defaults are usually fine)
+# -----------------------------------------------------------------------------
+# msrv = "1.70"                    # if you need to support an older Rust version
+# disallowed-names = ["foo", ".."] # names to forbid (default: foo, baz, quux)
+# excessive-nesting-threshold = 4  # max nesting before lint (0 = no limit by default)
