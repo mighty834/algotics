@@ -82,6 +82,12 @@ impl Solutions {
 
         return result;
     }
+
+    pub fn max_profit_with_windows(prices: Vec<i32>) -> i32 {
+        prices.windows(2)
+            .map(|arr| if arr[1] > arr[0] { arr[1] - arr[0] } else { 0 })
+            .sum()
+    }
 }
 
 #[cfg(test)]
@@ -96,6 +102,10 @@ mod best_time_to_buy_and_sell_stock_2_tests {
                 let expected: i32 = $expected;
 
                 let result: i32 = Solutions::max_profit(prices);
+                assert_eq!(result, expected);
+
+                let prices: Vec<i32> = $prices;
+                let result: i32 = Solutions::max_profit_with_windows(prices);
                 assert_eq!(result, expected);
             }
         };
