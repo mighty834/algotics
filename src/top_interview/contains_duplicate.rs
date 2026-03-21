@@ -68,7 +68,7 @@ impl Solutions {
     /// Duplicate check via [`HashSet`](std::collections::HashSet): compare length with unique count.
     ///
     /// **Idea**
-    /// Insert all elements into a set. A [`HashSet`] keeps only distinct values. If
+    /// Insert all elements into a set. A [`HashSet`](std::collections::HashSet) keeps only distinct values. If
     /// `nums.len() != set.len()`, some value appeared more than once (at least one
     /// duplicate). Otherwise all elements are unique.
     ///
@@ -146,6 +146,46 @@ impl Solutions {
 
         return false;
     }
+
+    /// Duplicate check with a **direct-address bit table** over the assumed value range.
+    ///
+    /// **Idea**
+    /// Treat each possible integer in a fixed window as its own slot. Map `val` to
+    /// `index = val + 10⁹` so values in about `[-10⁹, 10⁹]` map to `0 .. 2·10⁹ + 1`.
+    /// Use a [`Vec<bool>`]: `false` = not seen, `true` = already seen; second hit ⇒ duplicate.
+    ///
+    /// **Complexity**
+    /// - Time: **O(n)** over `n = nums.len()` (one pass, O(1) indexed access per step).
+    /// - Space: **O(V)** for `V = 2·10⁹ + 1` booleans allocated up front — proportional to the
+    ///   **value domain width**, not to how many distinct numbers appear in `nums`.
+    ///
+    /// # Warning — allocation size
+    ///
+    /// This builds `vec![false; 2 * 10⁹ + 1]`, i.e. **billions** of `bool` elements (gigabytes of
+    /// memory). It will usually **fail at allocation** or be impractical on typical hardware.
+    /// Use it to illustrate *bounded-domain* indexing; for real workloads prefer
+    /// [`contains_duplicate_hashing`](Self::contains_duplicate_hashing) or the other hash-set
+    /// variants on this type.
+    ///
+    /// # Correctness note
+    ///
+    /// Indices are computed with [`i32::pow`] and [`u32`] casts; values outside the intended
+    /// `[-10⁹, 10⁹]` band can **wrap or be out of range** — this matches a “LeetCode-style”
+    /// constraint table, not arbitrary `i32` in general.
+    pub fn contains_duplicate_big_vec(nums: Vec<i32>) -> bool {
+        let mut big_vec: Vec<bool> = vec![false; (10_u32.pow(9) * 2 + 1) as usize];
+        let get_index: fn(i32) -> u32 = |val: i32| (val + 10_i32.pow(9)) as u32;
+
+        for i in 0..nums.len() {
+            if big_vec[get_index(nums[i]) as usize] {
+                return true;
+            }
+
+            big_vec[get_index(nums[i]) as usize] = true;
+        }
+
+        return false;
+    }
 }
 
 #[cfg(test)]
@@ -172,6 +212,10 @@ mod contains_duplicate_tests {
 
                 let nums = $nums;
                 let result = Solutions::contains_duplicate_hashing_contains(nums);
+                assert_eq!(result, expected);
+
+                let nums = $nums;
+                let result = Solutions::contains_duplicate_big_vec(nums);
                 assert_eq!(result, expected);
             }
         };
