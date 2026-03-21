@@ -24,6 +24,9 @@ cargo test remove_duplicates_from_sorted_array
 # Best Time to Buy and Sell Stock II
 cargo test best_time_to_buy_and_sell_stock_2
 
+# Contains Duplicate
+cargo test contains_duplicate
+
 # Everything under `top_interview`
 cargo test top_interview
 
@@ -42,6 +45,7 @@ cargo test
 | **Rotate Array** | `rotate_array` | Rotate to the right by `k`; several approaches (stdlib, slices, iterators, …). |
 | **Remove Duplicates from Sorted Array** | `remove_duplicates_from_sorted_array` | In-place dedup of a sorted vector; returns length of unique prefix. |
 | **Best Time to Buy and Sell Stock II** | `best_time_to_buy_and_sell_stock_2` | Unlimited trades, one share at a time; greedy max profit from daily price series. |
+| **Contains Duplicate** | `contains_duplicate` | Detect duplicates (brute-force, `HashSet` length, single-pass inserts, `contains` + `insert`, …). |
 
 ---
 
@@ -54,7 +58,8 @@ algotics/
 │   └── top_interview/
 │       ├── rotate_array.rs
 │       ├── remove_duplicates_from_sorted_array.rs
-│       └── best_time_to_buy_and_sell_stock_2.rs
+│       ├── best_time_to_buy_and_sell_stock_2.rs
+│       └── contains_duplicate.rs
 ├── Cargo.toml
 ├── rustfmt.toml
 ├── clippy.toml
