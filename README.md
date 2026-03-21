@@ -21,6 +21,9 @@ cargo test rotate_array
 # Remove Duplicates from Sorted Array
 cargo test remove_duplicates_from_sorted_array
 
+# Best Time to Buy and Sell Stock II
+cargo test best_time_to_buy_and_sell_stock_2
+
 # Everything under `top_interview`
 cargo test top_interview
 
@@ -38,6 +41,7 @@ cargo test
 |--------|--------|--------|
 | **Rotate Array** | `rotate_array` | Rotate to the right by `k`; several approaches (stdlib, slices, iterators, …). |
 | **Remove Duplicates from Sorted Array** | `remove_duplicates_from_sorted_array` | In-place dedup of a sorted vector; returns length of unique prefix. |
+| **Best Time to Buy and Sell Stock II** | `best_time_to_buy_and_sell_stock_2` | Unlimited trades, one share at a time; greedy max profit from daily price series. |
 
 ---
 
@@ -49,7 +53,8 @@ algotics/
 │   ├── lib.rs
 │   └── top_interview/
 │       ├── rotate_array.rs
-│       └── remove_duplicates_from_sorted_array.rs
+│       ├── remove_duplicates_from_sorted_array.rs
+│       └── best_time_to_buy_and_sell_stock_2.rs
 ├── Cargo.toml
 ├── rustfmt.toml
 ├── clippy.toml
@@ -66,6 +71,7 @@ Each solution file has **Rustdoc** on the problem and helpers, plus `#[cfg(test)
 cargo fmt              # format (see rustfmt.toml)
 cargo clippy           # lints (see clippy.toml)
 cargo doc --no-deps    # open API docs locally
+cargo test --doc       # run Rustdoc examples (doctests)
 ```
 
 ---
