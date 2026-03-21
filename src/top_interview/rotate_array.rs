@@ -47,7 +47,7 @@ impl Solutions {
         nums.rotate_right(k);
     }
 
-    /// Same approach as [`built_in_rotate`], but converts `k` to `usize` using `try_from`.
+    /// Same approach as [`built_in_rotate`](Self::built_in_rotate), but converts `k` to `usize` using `try_from`.
     ///
     /// **Idea**
     /// - Use `usize::try_from(k)` to avoid a potentially lossy cast from `i32` to `usize`.
@@ -159,7 +159,7 @@ impl Solutions {
     /// - Compute `m = len - k` and create two borrowed slices:
     ///   - `left = &nums[..m]`
     ///   - `right = &nums[m..]`
-    /// - Build `result = right + left` just like in [`rotate_by_two_slices`],
+    /// - Build `result = right + left` just like in [`rotate_by_two_slices`](Self::rotate_by_two_slices),
     ///   but using manual slice syntax instead of `split_at`.
     ///
     /// Functionally equivalent to `rotate_by_two_slices`; the difference is mostly style.
@@ -220,6 +220,37 @@ impl Solutions {
             nums.push(*value);
         }
     }
+
+    /// Rotate using iterator adapters: `skip`, `chain`, then `collect`.
+    ///
+    /// **Idea**
+    /// - Reduce `k` modulo `len` so we only rotate by the effective amount.
+    /// - The rotated order is the last `k` elements followed by the first `len - k`:
+    ///   `nums[len - k..]` then `nums[..len - k]`.
+    /// - Express that as iterators: [`Iterator::skip`] on `nums` to skip the first
+    ///   `len - k` items (yielding the tail), [`Iterator::chain`] with [`Iterator::take`]
+    ///   on the start of the slice (the head), [`Iterator::cloned`], and [`Iterator::collect`]
+    ///   into a new `Vec`.
+    /// - Copy the result back with `clone_from_slice` on the mutable slice of `nums`.
+    ///
+    /// **Complexity**
+    /// - Time: O(n) — one pass over the elements when collecting.
+    /// - Space: O(n) for the temporary `result` vector.
+    ///
+    /// **Note**
+    /// - Requires `nums` to be non-empty (same assumption as other helpers here), since
+    ///   `k % nums.len()` is undefined for `len == 0`.
+    pub fn rotate_with_iter(nums: &mut Vec<i32>, k: i32) {
+        let k = k as usize % nums.len();
+
+        let result: Vec<i32> = nums.iter()
+            .skip(nums.len() - k)
+            .chain(nums.iter().take(nums.len() - k))
+            .cloned()
+            .collect();
+
+        nums.clone_from_slice(&result);
+    }
 }
 
 #[cfg(test)]
@@ -268,6 +299,10 @@ mod rotate_array_tests {
                 nums = $nums;
                 Solutions::rotate_with_two_fors(&mut nums, k);
                 assert_eq!(nums, expected, "rotate_with_two_fors solution failed");
+
+                nums = $nums;
+                Solutions::rotate_with_iter(&mut nums, k);
+                assert_eq!(nums, expected, "rotate_with_iter failed");
             }
         };
         (

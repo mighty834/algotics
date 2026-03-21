@@ -45,6 +45,20 @@
 pub struct Solutions;
 
 impl Solutions {
+    /// Remove duplicates in-place using a single write index (“slow pointer”).
+    ///
+    /// **Idea**
+    /// - Because `nums` is sorted, duplicates are contiguous. Keep the first element
+    ///   at index `0`, then walk `i` from `1..len`.
+    /// - Whenever `nums[i]` differs from `nums[i - 1]`, it is a new unique value: copy it
+    ///   to `nums[cx]` and advance `cx` (the next position to write).
+    /// - Values at indices `cx..` are overwritten or ignored; only `nums[..cx]` matters.
+    ///
+    /// **Returns**
+    /// - `cx` as `i32`: the length of the prefix that contains all unique elements in order.
+    ///
+    /// **Complexity**
+    /// - Time: O(n) with O(1) extra space (only `cx` and the loop index).
     pub fn simple_index(nums: &mut Vec<i32>) -> i32 {
         let mut cx: usize = 1;
 
@@ -56,6 +70,38 @@ impl Solutions {
         }
 
         return cx as i32;
+    }
+
+    /// Collect unique values into a [`BTreeSet`](std::collections::BTreeSet), then copy
+    /// them back to the front of `nums`.
+    ///
+    /// **Idea**
+    /// - Insert every element into a [`BTreeSet`](std::collections::BTreeSet), which stores
+    ///   **sorted** unique values
+    ///   (same order as the original array, since input is already sorted).
+    /// - Iterate the set in order and overwrite `nums[0]`, `nums[1]`, … with those values.
+    ///
+    /// **Returns**
+    /// - The number of unique elements (`set.len()` as `i32`), i.e. how many leading
+    ///   positions of `nums` are now valid.
+    ///
+    /// **Complexity**
+    /// - Time: O(n log n) for building and iterating the set.
+    /// - Space: O(n) for the set.
+    ///
+    /// **Trade‑offs**
+    /// - Simpler mentally than the two-pointer approach, but uses extra memory and does
+    ///   not beat O(n) time. Prefer [`simple_index`](Self::simple_index) for interviews
+    ///   and large inputs.
+    pub fn throw_hash_set(nums: &mut Vec<i32>) -> i32 {
+        use std::collections::BTreeSet;
+
+        let set: BTreeSet<i32> = nums.iter().map(|i| *i).collect();
+        for (i, v) in set.iter().enumerate() {
+            nums[i] = *v;
+        }
+
+        return set.len() as i32;
     }
 }
 
@@ -72,6 +118,11 @@ mod remove_duplicates_from_sorted_array_tests {
 
                 let k: i32 = Solutions::simple_index(&mut nums);
                 assert_eq!(k, expected.len().try_into().unwrap_or_else(|_| panic!("BAD expected!")));
+                assert_eq!(&nums[..k as usize], &expected);
+
+                nums = $nums;
+                let k: i32 = Solutions::throw_hash_set(&mut nums);
+                assert_eq!(k, expected.len().try_into().unwrap());
                 assert_eq!(&nums[..k as usize], &expected);
             }
         };

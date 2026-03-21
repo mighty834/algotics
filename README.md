@@ -6,7 +6,7 @@
 
 ## Quick start
 
-Run tests for a specific algorithm by module name:
+Run tests for a specific algorithm by **module name** (substring match):
 
 ```bash
 cargo test <module_name>
@@ -15,13 +15,16 @@ cargo test <module_name>
 **Examples:**
 
 ```bash
-# Run all tests for the rotate_array algorithm
+# Rotate Array — all unit tests in that module
 cargo test rotate_array
 
-# Run all tests in the top_interview category
+# Remove Duplicates from Sorted Array
+cargo test remove_duplicates_from_sorted_array
+
+# Everything under `top_interview`
 cargo test top_interview
 
-# Run the full test suite
+# Full suite
 cargo test
 ```
 
@@ -31,9 +34,10 @@ cargo test
 
 ### Top Interview
 
-| Algorithm      | Module         | Description                                      |
-|----------------|----------------|--------------------------------------------------|
-| **Rotate Array** | `rotate_array` | Rotate an array to the right by `k` steps (in-place). |
+| Problem | Module | Notes |
+|--------|--------|--------|
+| **Rotate Array** | `rotate_array` | Rotate to the right by `k`; several approaches (stdlib, slices, iterators, …). |
+| **Remove Duplicates from Sorted Array** | `remove_duplicates_from_sorted_array` | In-place dedup of a sorted vector; returns length of unique prefix. |
 
 ---
 
@@ -44,12 +48,25 @@ algotics/
 ├── src/
 │   ├── lib.rs
 │   └── top_interview/
-│       └── rotate_array.rs   # Rotate Array (LeetCode-style)
+│       ├── rotate_array.rs
+│       └── remove_duplicates_from_sorted_array.rs
 ├── Cargo.toml
+├── rustfmt.toml
+├── clippy.toml
 └── README.md
 ```
 
-Each algorithm lives in its own module with doc comments and `#[cfg(test)]` unit tests. Use the module path as the filter for `cargo test`.
+Each solution file has **Rustdoc** on the problem and helpers, plus `#[cfg(test)]` tests. Filter `cargo test` by the submodule name (see above).
+
+---
+
+## Development
+
+```bash
+cargo fmt              # format (see rustfmt.toml)
+cargo clippy           # lints (see clippy.toml)
+cargo doc --no-deps    # open API docs locally
+```
 
 ---
 
