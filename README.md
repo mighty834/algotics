@@ -33,6 +33,9 @@ cargo test single_number
 # Intersection of Two Arrays II
 cargo test intersection_of_two_arrays_2
 
+# Plus One
+cargo test plus_one
+
 # Everything under `top_interview`
 cargo test top_interview
 
@@ -54,6 +57,7 @@ cargo test
 | **Contains Duplicate** | `contains_duplicate` | Detect duplicates (brute-force, `HashSet` length, single-pass inserts, `contains` + `insert`, …). |
 | **Single Number** | `single_number` | Find the unique element when every other value appears exactly twice. |
 | **Intersection of Two Arrays II** | `intersection_of_two_arrays_2` | Return common values with multiplicity using sort + two pointers. |
+| **Plus One** | `plus_one` | Increment a big-endian digit vector by one (carry from the right). |
 
 ---
 
@@ -69,7 +73,8 @@ algotics/
 │       ├── best_time_to_buy_and_sell_stock_2.rs
 │       ├── contains_duplicate.rs
 │       ├── single_number.rs
-│       └── intersection_of_two_arrays_2.rs
+│       ├── intersection_of_two_arrays_2.rs
+│       └── plus_one.rs
 ├── Cargo.toml
 ├── rustfmt.toml
 ├── clippy.toml
