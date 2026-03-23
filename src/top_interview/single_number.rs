@@ -1,5 +1,3 @@
-use std::collections::HashSet;
-
 /// Finds the element that appears only once in the array.
 ///
 /// Given a non-empty vector `nums`, every element appears exactly twice except

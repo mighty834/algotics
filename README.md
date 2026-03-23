@@ -36,6 +36,12 @@ cargo test intersection_of_two_arrays_2
 # Plus One
 cargo test plus_one
 
+# Move Zeroes
+cargo test move_zeroes
+
+# Two Sum
+cargo test two_sum
+
 # Everything under `top_interview`
 cargo test top_interview
 
@@ -58,6 +64,8 @@ cargo test
 | **Single Number** | `single_number` | Find the unique element when every other value appears exactly twice. |
 | **Intersection of Two Arrays II** | `intersection_of_two_arrays_2` | Return common values with multiplicity using sort + two pointers. |
 | **Plus One** | `plus_one` | Increment a big-endian digit vector by one (carry from the right). |
+| **Move Zeroes** | `move_zeroes` | Move all zeroes to the end while preserving non-zero order. |
+| **Two Sum** | `two_sum` | Return indices of two values whose sum equals the target. |
 
 ---
 
@@ -74,7 +82,9 @@ algotics/
 │       ├── contains_duplicate.rs
 │       ├── single_number.rs
 │       ├── intersection_of_two_arrays_2.rs
-│       └── plus_one.rs
+│       ├── plus_one.rs
+│       ├── move_zeroes.rs
+│       └── two_sum.rs
 ├── Cargo.toml
 ├── rustfmt.toml
 ├── clippy.toml

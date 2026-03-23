@@ -5,3 +5,5 @@ pub mod contains_duplicate;
 pub mod single_number;
 pub mod intersection_of_two_arrays_2;
 pub mod plus_one;
+pub mod move_zeroes;
+pub mod two_sum;
