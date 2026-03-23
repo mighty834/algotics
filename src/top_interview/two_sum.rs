@@ -80,7 +80,6 @@ impl Solutions {
         let dark_twin: Vec<i32> = nums.iter().map(|value| target - *value).collect();
         let intersection: Vec<i32> = IntersectionSolutions::intersect(nums.clone(), dark_twin);
 
-
         for i in 0..intersection.len() {
             for j in (i + 1)..intersection.len() {
                 if intersection[i] + intersection[j] == target {
