@@ -42,6 +42,9 @@ cargo test move_zeroes
 # Two Sum
 cargo test two_sum
 
+# Valid Sudoku
+cargo test valid_sudoku
+
 # Everything under `top_interview`
 cargo test top_interview
 
@@ -66,6 +69,7 @@ cargo test
 | **Plus One** | `plus_one` | Increment a big-endian digit vector by one (carry from the right). |
 | **Move Zeroes** | `move_zeroes` | Move all zeroes to the end while preserving non-zero order. |
 | **Two Sum** | `two_sum` | Return indices of two values whose sum equals the target. |
+| **Valid Sudoku** | `valid_sudoku` | Check a 9×9 board: no duplicate digits in any row, column, or 3×3 box. |
 
 ---
 
@@ -84,7 +88,8 @@ algotics/
 │       ├── intersection_of_two_arrays_2.rs
 │       ├── plus_one.rs
 │       ├── move_zeroes.rs
-│       └── two_sum.rs
+│       ├── two_sum.rs
+│       └── valid_sudoku.rs
 ├── Cargo.toml
 ├── rustfmt.toml
 ├── clippy.toml
