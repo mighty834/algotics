@@ -48,6 +48,9 @@ cargo test valid_sudoku
 # Reverse String
 cargo test reverse_string
 
+# Reverse Integer
+cargo test reverse_integer
+
 # Everything under `top_interview`
 cargo test top_interview
 
@@ -74,6 +77,7 @@ cargo test
 | **Two Sum** | `two_sum` | Return indices of two values whose sum equals the target. |
 | **Valid Sudoku** | `valid_sudoku` | Check a 9×9 board: no duplicate digits in any row, column, or 3×3 box. |
 | **Reverse String** | `reverse_string` | Reverse a `Vec<char>` in place (`Vec::reverse`) and an iterator-based variant. |
+| **Reverse Integer** | `reverse_integer` | Reverse decimal digits of a signed 32-bit integer; return `0` on overflow. |
 
 ---
 
@@ -94,7 +98,8 @@ algotics/
 │       ├── move_zeroes.rs
 │       ├── two_sum.rs
 │       ├── valid_sudoku.rs
-│       └── reverse_string.rs
+│       ├── reverse_string.rs
+│       └── reverse_integer.rs
 ├── Cargo.toml
 ├── rustfmt.toml
 ├── clippy.toml

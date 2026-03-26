@@ -9,3 +9,4 @@ pub mod move_zeroes;
 pub mod two_sum;
 pub mod valid_sudoku;
 pub mod reverse_string;
+pub mod reverse_integer;

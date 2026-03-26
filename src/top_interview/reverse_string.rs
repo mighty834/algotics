@@ -33,7 +33,7 @@
 pub struct Solutions;
 
 impl Solutions {
-    /// Reverse `s` in place using [`Vec::reverse`](std::vec::Vec::reverse).
+    /// Reverse `s` in place using `Vec::reverse`.
     ///
     /// **Idea**
     /// Delegates to the standard library, which reorders elements within the same allocation.
@@ -52,7 +52,7 @@ impl Solutions {
     /// **Idea**
     /// - `clone` the buffer to `s_twin`.
     /// - Build a new `Vec<char>` with `s_twin.iter().rev().map(|c| *c).collect()`.
-    /// - Copy into `s` with [`clone_from_slice`](std::primitive::slice::clone_from_slice).
+    /// - Copy into `s` with `clone_from_slice`.
     ///
     /// **Trade-offs**
     /// - Time: **O(n)**.
