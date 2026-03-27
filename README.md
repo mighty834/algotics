@@ -77,6 +77,7 @@ cargo test
 | **Two Sum** | `two_sum` | Return indices of two values whose sum equals the target. |
 | **Valid Sudoku** | `valid_sudoku` | Check a 9×9 board: no duplicate digits in any row, column, or 3×3 box. |
 | **Valid Anagram** | `valid_anagram` | Check whether two strings are anagrams by comparing their sorted character sequences. |
+| **Valid Palindrome** | `valid_palindrome` | Check whether a string reads the same forward and backward after lowercasing and stripping non-alphanumeric characters. |
 | **Reverse String** | `reverse_string` | Reverse a `Vec<char>` in place (`Vec::reverse`) and an iterator-based variant. |
 | **Reverse Integer** | `reverse_integer` | Reverse decimal digits of a signed 32-bit integer; return `0` on overflow. |
 | **First Unique Character in a String** | `first_unique_character_in_a_string` | Return the zero-based index of the first non-repeating character, or `-1` if none exists. |
@@ -101,6 +102,7 @@ algotics/
 │       ├── two_sum.rs
 │       ├── valid_sudoku.rs
 │       ├── valid_anagram.rs
+│       ├── valid_palindrome.rs
 │       ├── reverse_string.rs
 │       └── reverse_integer.rs
 ├── Cargo.toml
