@@ -86,7 +86,7 @@ impl Solutions {
 
         storage
             .iter()
-            .filter(|(c, [i, v])| *v == 1)
+            .filter(|(_, [_, v])| *v == 1)
             .min_by_key(|tup| tup.1[0])
             .unwrap_or((&'c', &[-1, -1])).1[0]
     }

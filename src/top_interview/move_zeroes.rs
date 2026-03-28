@@ -1,5 +1,3 @@
-use std::iter::chain;
-
 /// Moves all zero values in the array to the end while preserving the
 /// relative order of non-zero elements.
 ///

@@ -1,5 +1,3 @@
-use std::collections::HashSet;
-
 /// Determines whether a partially filled `9 x 9` Sudoku board is valid.
 ///
 /// Only the filled cells need to be validated according to the following rules:
