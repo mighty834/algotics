@@ -7,7 +7,7 @@ pub mod longest_common_prefix;
 pub mod move_zeroes;
 pub mod plus_one;
 pub mod remove_duplicates_from_sorted_array;
-mod remove_nth_node_from_end_of_the_list;
+pub mod remove_nth_node_from_end_of_the_list;
 pub mod reverse_integer;
 pub mod reverse_string;
 pub mod rotate_array;
