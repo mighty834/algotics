@@ -96,7 +96,7 @@ mod valid_anagram_tests {
                 let result: bool = Solutions::is_anagram(s, t);
                 assert_eq!(result, expected);
             }
-        }
+        };
     }
 
     test_case!(String::from("hello"), String::from("olehl"), true, test_case_1);

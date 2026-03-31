@@ -98,7 +98,8 @@ impl Solutions {
     /// If the interview requirement is strictly in-place with O(1) extra space,
     /// prefer a two-pointer overwrite/swap strategy.
     pub fn move_zeroes_cheated(nums: &mut Vec<i32>) {
-        let temp: Vec<i32> = nums.iter()
+        let temp: Vec<i32> = nums
+            .iter()
             .filter(|&x| *x != 0)
             .chain(nums.iter().filter(|&x| *x == 0))
             .map(|x| *x)
@@ -127,7 +128,7 @@ mod move_zeroes_tests {
                 Solutions::move_zeroes_cheated(&mut nums);
                 assert_eq!(nums, expected);
             }
-        }
+        };
     }
 
     test_case!(vec![1, 0, 2, 0, 3], vec![1, 2, 3, 0, 0], test_case_1);

@@ -100,7 +100,7 @@ mod intersection_of_two_arrays_tests {
 
                 assert_eq!(result, expected);
             }
-        }
+        };
     }
 
     test_case!(vec![1, 2, 3, 4, 5], vec![3, 4, 5, 6, 7], vec![3, 4, 5], test_case_1);
@@ -110,6 +110,16 @@ mod intersection_of_two_arrays_tests {
     test_case!(vec![1, 2, 3], vec![1, 2, 3], vec![1, 2, 3], test_case_5);
     test_case!(vec![1, 2, 3, 4], vec![4, 5, 6, 7], vec![4], test_case_6);
     test_case!(vec![1, 2, 2, 2, 2, 3, 4, 5, 5, 6], vec![2, 2, 5, 6], vec![2, 2, 5, 6], test_case_7);
-    test_case!(vec![1, 1, 2, 2, 3, 3, 4, 4], vec![1, 2, 2, 3, 4, 4, 9], vec![1, 2, 2, 3, 4, 4], test_case_8);
-    test_case!(vec![5, 99, 1, 1, 5, 99, 11, 4, 11], vec![11, 8, 5, 99, 4, 1, 90, 1], vec![5, 99, 1, 1, 11, 4], test_case_9);
+    test_case!(
+        vec![1, 1, 2, 2, 3, 3, 4, 4],
+        vec![1, 2, 2, 3, 4, 4, 9],
+        vec![1, 2, 2, 3, 4, 4],
+        test_case_8
+    );
+    test_case!(
+        vec![5, 99, 1, 1, 5, 99, 11, 4, 11],
+        vec![11, 8, 5, 99, 4, 1, 90, 1],
+        vec![5, 99, 1, 1, 11, 4],
+        test_case_9
+    );
 }

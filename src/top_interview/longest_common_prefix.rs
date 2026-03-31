@@ -73,7 +73,6 @@ impl Solutions {
 
         let mut result: String = String::new();
         'outer: for i in 0..max_len {
-
             let temp: char = strs[0].chars().nth(i).unwrap();
             for str in &strs {
                 if str.chars().nth(i).unwrap() != temp {
@@ -102,40 +101,42 @@ mod longest_common_prefix_tests {
                 let result: String = Solutions::longest_common_prefix(strs);
                 assert_eq!(result, expected);
             }
-        }
+        };
     }
 
-    test_case!(vec![
-        String::from("hello"),
-        String::from("hell"),
-        String::from("he")
-    ], String::from("he"), test_case_1);
+    test_case!(
+        vec![String::from("hello"), String::from("hell"), String::from("he")],
+        String::from("he"),
+        test_case_1
+    );
 
-    test_case!(vec![
-        String::from("a"), String::from("a"), String::from("a")
-    ], String::from("a"), test_case_2);
+    test_case!(
+        vec![String::from("a"), String::from("a"), String::from("a")],
+        String::from("a"),
+        test_case_2
+    );
 
-    test_case!(vec![
-        String::from("high"),
-        String::from("voltage"),
-        String::from("end")
-    ], String::from(""), test_case_3);
+    test_case!(
+        vec![String::from("high"), String::from("voltage"), String::from("end")],
+        String::from(""),
+        test_case_3
+    );
 
-    test_case!(vec![
-        String::from("knife"),
-        String::from("knife"),
-        String::from("no")
-    ], String::from(""),test_case_4);
+    test_case!(
+        vec![String::from("knife"), String::from("knife"), String::from("no")],
+        String::from(""),
+        test_case_4
+    );
 
-    test_case!(vec![
-        String::from("gogogogo"),
-        String::from("gogogo"),
-        String::from("gogo")
-    ], String::from("gogo"), test_case_5);
+    test_case!(
+        vec![String::from("gogogogo"), String::from("gogogo"), String::from("gogo")],
+        String::from("gogo"),
+        test_case_5
+    );
 
-    test_case!(vec![
-        String::from("noisybusy"),
+    test_case!(
+        vec![String::from("noisybusy"), String::from("noisy"), String::from("noisy")],
         String::from("noisy"),
-        String::from("noisy")
-    ], String::from("noisy"), test_case_6);
+        test_case_6
+    );
 }

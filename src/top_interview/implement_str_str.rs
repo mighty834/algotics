@@ -66,7 +66,7 @@ impl Solutions {
     pub fn str_str(haystack: String, needle: String) -> i32 {
         match haystack.find(&needle) {
             Some(index) => index as i32,
-            None => -1
+            None => -1,
         }
     }
 }
@@ -86,7 +86,7 @@ mod implement_str_str_tests {
                 let result: i32 = Solutions::str_str(haystack, needle);
                 assert_eq!(result, expected);
             }
-        }
+        };
     }
 
     test_case!(String::from("helloworld!"), String::from("world"), 5, test_case_1);

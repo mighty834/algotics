@@ -99,7 +99,7 @@ mod plus_one_tests {
                 let result = Solutions::plus_one(digits);
                 assert_eq!(result, expected);
             }
-        }
+        };
     }
 
     test_case!(vec![1, 2, 3, 4, 5], vec![1, 2, 3, 4, 6], test_case_1);

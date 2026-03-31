@@ -243,7 +243,8 @@ impl Solutions {
     pub fn rotate_with_iter(nums: &mut Vec<i32>, k: i32) {
         let k = k as usize % nums.len();
 
-        let result: Vec<i32> = nums.iter()
+        let result: Vec<i32> = nums
+            .iter()
             .skip(nums.len() - k)
             .chain(nums.iter().take(nums.len() - k))
             .cloned()

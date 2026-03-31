@@ -144,11 +144,7 @@ impl Solutions {
 
         s = &s[0..=cx];
 
-        let s = if is_positive {
-            format!("+{}", s)
-        } else {
-            format!("-{}", s)
-        };
+        let s = if is_positive { format!("+{}", s) } else { format!("-{}", s) };
 
         let result: i32 = match s.parse::<i32>() {
             Ok(x) => x as i32,
@@ -157,11 +153,7 @@ impl Solutions {
                     return 0;
                 }
 
-                if is_positive {
-                    i32::MAX
-                } else {
-                    i32::MIN
-                }
+                if is_positive { i32::MAX } else { i32::MIN }
             }
         };
 
@@ -182,7 +174,7 @@ mod string_to_integer_atoi {
                 let result: i32 = Solutions::my_atoi(s);
                 assert_eq!(result, expected);
             }
-        }
+        };
     }
 
     test_case!(String::from(""), 0, test_case_1);

@@ -63,6 +63,9 @@ cargo test implement_str_str
 # Longest Common Prefix
 cargo test longest_common_prefix
 
+# Remove Nth Node From End of List
+cargo test remove_nth_node_from_end_of_the_list
+
 # Reverse String
 cargo test reverse_string
 
@@ -102,6 +105,7 @@ cargo test
 | **String to Integer (atoi)** | `string_to_integer_atoi` | Parse a string to `i32`: trim, optional sign, digit run, clamp on overflow. |
 | **Implement strStr()** | `implement_str_str` | Return the first index of `needle` in `haystack`, or `-1` if not found. |
 | **Longest Common Prefix** | `longest_common_prefix` | Longest prefix shared by all strings (column-wise compare up to the shortest length). |
+| **Remove Nth Node From End of List** | `remove_nth_node_from_end_of_the_list` | Remove the n-th node from the end of a singly linked list (vector rebuild and two-pass pointer rewiring). |
 
 ---
 
@@ -128,6 +132,7 @@ algotics/
 │       ├── string_to_integer_atoi.rs
 │       ├── implement_str_str.rs
 │       ├── longest_common_prefix.rs
+│       ├── remove_nth_node_from_end_of_the_list.rs
 │       ├── reverse_string.rs
 │       └── reverse_integer.rs
 ├── Cargo.toml

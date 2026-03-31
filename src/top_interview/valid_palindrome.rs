@@ -76,10 +76,7 @@ impl Solutions {
     /// - Time: `O(n)` over the length of `s` for filtering and building two collected strings
     /// - Extra space: `O(k)` where `k` is the length of the normalized string
     pub fn is_palindrome(s: String) -> bool {
-        let s = s
-            .chars()
-            .filter(|c| c.is_alphanumeric())
-            .flat_map(|c| c.to_lowercase());
+        let s = s.chars().filter(|c| c.is_alphanumeric()).flat_map(|c| c.to_lowercase());
 
         s.clone().collect::<String>() == s.rev().collect::<String>()
     }
@@ -99,7 +96,7 @@ mod valid_palindrome_tests {
                 let result: bool = Solutions::is_palindrome(s);
                 assert_eq!(result, expected);
             }
-        }
+        };
     }
 
     test_case!(String::from("Hello"), false, test_case_1);

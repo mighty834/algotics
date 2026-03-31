@@ -117,7 +117,10 @@ mod remove_duplicates_from_sorted_array_tests {
                 let expected: Vec<i32> = $expected;
 
                 let k: i32 = Solutions::simple_index(&mut nums);
-                assert_eq!(k, expected.len().try_into().unwrap_or_else(|_| panic!("BAD expected!")));
+                assert_eq!(
+                    k,
+                    expected.len().try_into().unwrap_or_else(|_| panic!("BAD expected!"))
+                );
                 assert_eq!(&nums[..k as usize], &expected);
 
                 nums = $nums;

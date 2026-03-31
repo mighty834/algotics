@@ -85,8 +85,8 @@ impl Solutions {
                 if intersection[i] + intersection[j] == target {
                     return vec![
                         nums.iter().position(|&v| v == intersection[i]).unwrap() as i32,
-                        nums.iter().rposition(|&v| v == intersection[j]).unwrap() as i32
-                    ]
+                        nums.iter().rposition(|&v| v == intersection[j]).unwrap() as i32,
+                    ];
                 }
             }
         }
@@ -114,7 +114,7 @@ mod two_sum_tests {
 
                 assert_eq!(result, expected);
             }
-        }
+        };
     }
 
     test_case!(vec![0, 0, 0, 0, 1, 1], 2, vec![4, 5], test_case_1);

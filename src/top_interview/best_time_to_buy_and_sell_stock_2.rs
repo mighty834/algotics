@@ -84,9 +84,7 @@ impl Solutions {
     }
 
     pub fn max_profit_with_windows(prices: Vec<i32>) -> i32 {
-        prices.windows(2)
-            .map(|arr| if arr[1] > arr[0] { arr[1] - arr[0] } else { 0 })
-            .sum()
+        prices.windows(2).map(|arr| if arr[1] > arr[0] { arr[1] - arr[0] } else { 0 }).sum()
     }
 }
 

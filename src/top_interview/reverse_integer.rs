@@ -78,7 +78,8 @@ impl Solutions {
                 let summand = i32::checked_pow(10, (digits.len() - i) as u32)?;
                 let mul = v.checked_mul(summand)?;
                 acc.checked_add(mul)
-            }).unwrap_or(0)
+            })
+            .unwrap_or(0)
     }
 }
 
@@ -96,7 +97,7 @@ mod reverse_integer_tests {
                 let result: i32 = Solutions::reverse(x);
                 assert_eq!(result, expected);
             }
-        }
+        };
     }
 
     test_case!(123, 321, test_case_1);

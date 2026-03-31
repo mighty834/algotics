@@ -88,7 +88,8 @@ impl Solutions {
             .iter()
             .filter(|(_, [_, v])| *v == 1)
             .min_by_key(|tup| tup.1[0])
-            .unwrap_or((&'c', &[-1, -1])).1[0]
+            .unwrap_or((&'c', &[-1, -1]))
+            .1[0]
     }
 
     /// Returns the index of the first non-repeating character in `s`.
@@ -129,7 +130,7 @@ impl Solutions {
     /// - Time: `O(n)` average, where `n = s.chars().count()`
     /// - Extra space: `O(k)` where `k` is the number of distinct characters in `s`
     pub fn first_uniq_char_by_mapset(s: String) -> i32 {
-        use std::collections::{HashSet, HashMap};
+        use std::collections::{HashMap, HashSet};
         let mut good_values: HashMap<char, i32> = HashMap::with_capacity(s.len());
         let mut bad_values: HashSet<char> = HashSet::with_capacity(s.len());
 
@@ -144,10 +145,7 @@ impl Solutions {
             }
         }
 
-        *good_values
-            .iter()
-            .min_by_key(|(_, i)| *i)
-            .unwrap_or((&'_', &-1)).1
+        *good_values.iter().min_by_key(|(_, i)| *i).unwrap_or((&'_', &-1)).1
     }
 }
 
@@ -169,7 +167,7 @@ mod first_uniq_char_tests {
                 let result: i32 = Solutions::first_uniq_char_by_mapset(s);
                 assert_eq!(result, expected);
             }
-        }
+        };
     }
 
     test_case!(String::from("hello"), 0, test_case_1);

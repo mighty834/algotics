@@ -62,9 +62,7 @@ impl Solutions {
     pub fn reverse_string_with_iter(s: &mut Vec<char>) {
         let s_twin = s.clone();
 
-        s.clone_from_slice(
-            &s_twin.iter().rev().map(|c| *c).collect::<Vec<char>>()
-        )
+        s.clone_from_slice(&s_twin.iter().rev().map(|c| *c).collect::<Vec<char>>())
     }
 }
 
@@ -86,7 +84,7 @@ mod reverse_string_tests {
                 Solutions::reverse_string_with_iter(&mut s);
                 assert_eq!(s, expected);
             }
-        }
+        };
     }
 
     test_case!(vec!['h', 'e', 'l', 'l', 'o'], vec!['o', 'l', 'l', 'e', 'h'], test_case_1);
