@@ -1,3 +1,4 @@
+use std::alloc::LayoutError;
 /// Removes the n-th node from the end of a singly linked list and returns the new head.
 ///
 /// Given the head of a linked list `head` and an integer `n`, removes the n-th node
@@ -133,6 +134,60 @@ impl Solutions {
 
         node
     }
+
+    /// Removes the n-th node from the end in (effectively) one pass using a fast/slow gap.
+    ///
+    /// **Idea (two pointers with a fixed gap)**
+    /// - Advance a `fast` pointer to the end while keeping a `slow` cursor `n` nodes behind.
+    /// - When `fast` reaches the end, `slow` points to the node **just before** the one to
+    ///   remove, so we can bypass it by rewiring `next`.
+    ///
+    /// **How this implementation is expressed in Rust**
+    /// - It keeps `fast` as an immutable reference walking `head`.
+    /// - It builds/maintains a mutable cursor `slow` into a separate `new_head` list, which
+    ///   starts as a clone of `head`. This allows taking mutable references needed for
+    ///   pointer rewiring without fighting the borrow checker on the original traversal.
+    /// - If the target is the head node (i.e., removing the first node), it returns
+    ///   `head.next`.
+    ///
+    /// # Arguments
+    /// - `head`: Head of the singly linked list.
+    /// - `n`: 1-based position from the end to remove.
+    ///
+    /// # Returns
+    /// The head of the list after removing the n-th node from the end.
+    ///
+    /// # Complexity
+    /// - Time: `O(sz)` for `sz` nodes (single traversal to position pointers + one removal)
+    /// - Extra space: `O(sz)` due to cloning `head` into `new_head`
+    pub fn remove_nth_from_end_1_pass(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
+        let (mut new_head, mut head) = (head.clone(), head);
+        let mut fast = &head;
+        let mut slow: &mut Option<Box<ListNode>> = &mut None;
+        let mut cx: i32 = 0 - n;
+
+        while fast.is_some() {
+            cx += 1;
+            fast = &fast.as_ref()?.next;
+
+            if cx.is_positive() {
+                if slow.is_none() {
+                    slow = &mut new_head;
+                } else {
+                    slow = &mut slow.as_mut()?.next;
+                }
+            }
+        }
+
+        if slow.is_none() {
+            return head?.next;
+        }
+
+        let mut next = &mut slow.as_mut()?.next;
+        slow.as_mut()?.next = next.as_mut()?.next.take();
+
+        new_head
+    }
 }
 
 #[cfg(test)]
@@ -152,6 +207,10 @@ mod remove_nth_node_from_end_of_the_list_tests {
 
                 let head: Option<Box<ListNode>> = $head;
                 let result: Option<Box<ListNode>> = Solutions::remove_nth_from_end_2_pass(head, n);
+                assert_eq!(result, expected);
+
+                let head: Option<Box<ListNode>> = $head;
+                let result: Option<Box<ListNode>> = Solutions::remove_nth_from_end_1_pass(head, n);
                 assert_eq!(result, expected);
             }
         };
