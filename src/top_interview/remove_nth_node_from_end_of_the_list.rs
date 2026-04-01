@@ -188,6 +188,55 @@ impl Solutions {
 
         new_head
     }
+
+    /// Removes the n-th node from the end using a “one-and-a-half pass” approach.
+    ///
+    /// **Idea**
+    /// - First traversal computes how far from the front the removal happens.
+    ///   This code keeps `cx` starting at `-n` and increments once per node. After reaching
+    ///   the end, `cx == sz - n`, where `sz` is the list length.
+    /// - If `cx == 0`, the node to remove is the head, so return `head.next`.
+    /// - Otherwise, walk `cx - 1` steps from the head to reach the node **just before**
+    ///   the target, then bypass the target by rewiring:
+    ///   `slow.next = slow.next.next`.
+    ///
+    /// It’s “one and a half pass” because the second walk only goes up to the predecessor
+    /// node rather than traversing the entire list again.
+    ///
+    /// # Arguments
+    /// - `head`: Head of the singly linked list.
+    /// - `n`: 1-based position from the end to remove.
+    ///
+    /// # Returns
+    /// The head of the list after removing the n-th node from the end.
+    ///
+    /// # Complexity
+    /// - Time: `O(sz)` (one full traversal + up to `sz - n` steps)
+    /// - Extra space: `O(1)`
+    pub fn remove_nth_from_end_real_one_and_half_pass(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
+        let mut head = head;
+        let mut cx: i32 = 0 - n;
+
+        let mut fast = &head;
+        while fast.is_some() {
+            cx += 1;
+            fast = &fast.as_ref()?.next;
+        }
+
+        if cx == 0 {
+            return head?.next;
+        }
+
+        let mut slow = &mut head;
+        for _ in 1..cx {
+            slow = &mut slow.as_mut()?.next;
+        }
+
+        let mut next = &mut slow.as_mut()?.next;
+        slow.as_mut()?.next = next.as_mut()?.next.take();
+
+        head
+    }
 }
 
 #[cfg(test)]
@@ -211,6 +260,10 @@ mod remove_nth_node_from_end_of_the_list_tests {
 
                 let head: Option<Box<ListNode>> = $head;
                 let result: Option<Box<ListNode>> = Solutions::remove_nth_from_end_1_pass(head, n);
+                assert_eq!(result, expected);
+
+                let head: Option<Box<ListNode>> = $head;
+                let result: Option<Box<ListNode>> = Solutions::remove_nth_from_end_real_one_and_half_pass(head, n);
                 assert_eq!(result, expected);
             }
         };
