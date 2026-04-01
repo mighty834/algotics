@@ -66,6 +66,9 @@ cargo test longest_common_prefix
 # Remove Nth Node From End of List
 cargo test remove_nth_node_from_end_of_the_list
 
+# Reverse Linked List
+cargo test reverse_linked_list
+
 # Reverse String
 cargo test reverse_string
 
@@ -106,6 +109,7 @@ cargo test
 | **Implement strStr()** | `implement_str_str` | Return the first index of `needle` in `haystack`, or `-1` if not found. |
 | **Longest Common Prefix** | `longest_common_prefix` | Longest prefix shared by all strings (column-wise compare up to the shortest length). |
 | **Remove Nth Node From End of List** | `remove_nth_node_from_end_of_the_list` | Remove the n-th node from the end of a singly linked list (vector rebuild and two-pass pointer rewiring). |
+| **Reverse Linked List** | `reverse_linked_list` | Reverse a singly linked list by collecting values and rebuilding with prepended nodes (`fold`). |
 
 ---
 
@@ -133,6 +137,7 @@ algotics/
 │       ├── implement_str_str.rs
 │       ├── longest_common_prefix.rs
 │       ├── remove_nth_node_from_end_of_the_list.rs
+│       ├── reverse_linked_list.rs
 │       ├── reverse_string.rs
 │       └── reverse_integer.rs
 ├── Cargo.toml
