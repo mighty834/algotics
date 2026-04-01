@@ -1,4 +1,5 @@
 use std::alloc::LayoutError;
+use std::cell::RefCell;
 /// Removes the n-th node from the end of a singly linked list and returns the new head.
 ///
 /// Given the head of a linked list `head` and an integer `n`, removes the n-th node
@@ -213,7 +214,7 @@ impl Solutions {
     /// # Complexity
     /// - Time: `O(sz)` (one full traversal + up to `sz - n` steps)
     /// - Extra space: `O(1)`
-    pub fn remove_nth_from_end_real_one_and_half_pass(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
+    pub fn remove_nth_from_end_one_and_half_pass(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
         let mut head = head;
         let mut cx: i32 = 0 - n;
 
@@ -236,6 +237,72 @@ impl Solutions {
         slow.as_mut()?.next = next.as_mut()?.next.take();
 
         head
+    }
+
+    /// Removes the n-th node from the end in one linear scan using a dummy head and raw pointers.
+    ///
+    /// **Idea (`O(1)` extra space, single traversal)**
+    /// - Allocate a **dummy** node whose `next` is `head`. That makes “delete the first real
+    ///   node” look like deleting any other node’s successor.
+    /// - Keep two cursors:
+    ///   - `fast`: read-only cursor used to find the **last** node in the list
+    ///   - `slow`: mutable cursor to the node **immediately before** the one to remove
+    /// - Advance `fast` **n** steps ahead of the dummy, then move `fast` and `slow` together
+    ///   until `fast` has **no** `next` (i.e. `fast` sits on the tail). At that moment,
+    ///   `slow.next` is exactly the *n-th from the end* node.
+    /// - Detach it with `take()` and splice `slow.next` to the node after the removed one.
+    ///
+    /// This is the usual “gap of `n` between predecessors” pattern, implemented with raw
+    /// pointers so Rust’s borrow checker allows simultaneous advance of a read cursor and a
+    /// mutable predecessor cursor over the same `Box` list.
+    ///
+    /// # Arguments
+    /// - `head`: Head of the singly linked list.
+    /// - `n`: 1-based position from the end to remove (`1 <= n <= length` for valid inputs).
+    ///
+    /// # Returns
+    /// The head of the list after removal (unwrap the dummy’s `next`).
+    ///
+    /// # Complexity
+    /// - Time: `O(sz)` for `sz` nodes
+    /// - Extra space: `O(1)` besides the dummy node and list itself
+    ///
+    /// # Safety
+    /// This function contains an `unsafe` block that dereferences pointers built from `&mut`
+    /// references to nodes inside the list. It assumes the list is a well-formed singly
+    /// linked chain of `Box<ListNode>` and that `n` does not exceed the list length (as in
+    /// the problem constraints). Violating these invariants is **undefined behavior**.
+    pub fn remove_nth_from_end_real_1_pass(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
+        let mut dummy = Box::new(ListNode { val: 0, next: head });
+
+        // Raw pointers to the same list:
+        // fast: read cursor
+        // slow: mutable cursor to the predecessor of the target node
+        let mut fast: *const ListNode = &*dummy;
+        let mut slow: *mut ListNode = &mut *dummy;
+
+        unsafe {
+            // Move fast n steps ahead from dummy
+            for _ in 0..n {
+                fast = match (*fast).next.as_deref() {
+                    Some(next) => next as *const ListNode,
+                    None => return dummy.next, // impossible under valid constraints
+                };
+            }
+
+            // Move both until fast is at the last node
+            while (*fast).next.is_some() {
+                fast = (*fast).next.as_deref().unwrap() as *const ListNode;
+                slow = (*slow).next.as_deref_mut().unwrap() as *mut ListNode;
+            }
+
+            // Remove slow.next
+            let slow_node: &mut ListNode = &mut *slow;
+            let mut to_remove = slow_node.next.take().unwrap();
+            slow_node.next = to_remove.next.take();
+        }
+
+        dummy.next
     }
 }
 
@@ -263,7 +330,11 @@ mod remove_nth_node_from_end_of_the_list_tests {
                 assert_eq!(result, expected);
 
                 let head: Option<Box<ListNode>> = $head;
-                let result: Option<Box<ListNode>> = Solutions::remove_nth_from_end_real_one_and_half_pass(head, n);
+                let result: Option<Box<ListNode>> = Solutions::remove_nth_from_end_one_and_half_pass(head, n);
+                assert_eq!(result, expected);
+
+                let head: Option<Box<ListNode>> = $head;
+                let result: Option<Box<ListNode>> = Solutions::remove_nth_from_end_real_1_pass(head, n);
                 assert_eq!(result, expected);
             }
         };
