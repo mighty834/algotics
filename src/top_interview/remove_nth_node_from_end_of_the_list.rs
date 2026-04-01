@@ -1,5 +1,3 @@
-use std::alloc::LayoutError;
-use std::cell::RefCell;
 /// Removes the n-th node from the end of a singly linked list and returns the new head.
 ///
 /// Given the head of a linked list `head` and an integer `n`, removes the n-th node
@@ -79,14 +77,11 @@ impl Solutions {
         let drain_index: usize = nodes.len() - (n as usize);
         nodes.remove(drain_index);
 
-        nodes
-            .into_iter()
-            .rev()
-            .fold(None, |node, val| {
-                let mut prev_node: Box<ListNode> = Box::new(ListNode::new(val));
-                prev_node.next = node;
-                Some(prev_node)
-            })
+        nodes.into_iter().rev().fold(None, |node, val| {
+            let mut prev_node: Box<ListNode> = Box::new(ListNode::new(val));
+            prev_node.next = node;
+            Some(prev_node)
+        })
     }
 
     /// Removes the n-th node from the end using two passes over the list.
@@ -111,7 +106,10 @@ impl Solutions {
     /// # Complexity
     /// - Time: `O(sz)` (two linear passes)
     /// - Extra space: `O(1)`
-    pub fn remove_nth_from_end_2_pass(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
+    pub fn remove_nth_from_end_2_pass(
+        head: Option<Box<ListNode>>,
+        n: i32,
+    ) -> Option<Box<ListNode>> {
         let mut size: i32 = 0;
         let mut node = &head;
         while node.is_some() {
@@ -161,7 +159,10 @@ impl Solutions {
     /// # Complexity
     /// - Time: `O(sz)` for `sz` nodes (single traversal to position pointers + one removal)
     /// - Extra space: `O(sz)` due to cloning `head` into `new_head`
-    pub fn remove_nth_from_end_1_pass(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
+    pub fn remove_nth_from_end_1_pass(
+        head: Option<Box<ListNode>>,
+        n: i32,
+    ) -> Option<Box<ListNode>> {
         let (mut new_head, mut head) = (head.clone(), head);
         let mut fast = &head;
         let mut slow: &mut Option<Box<ListNode>> = &mut None;
@@ -214,7 +215,10 @@ impl Solutions {
     /// # Complexity
     /// - Time: `O(sz)` (one full traversal + up to `sz - n` steps)
     /// - Extra space: `O(1)`
-    pub fn remove_nth_from_end_one_and_half_pass(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
+    pub fn remove_nth_from_end_one_and_half_pass(
+        head: Option<Box<ListNode>>,
+        n: i32,
+    ) -> Option<Box<ListNode>> {
         let mut head = head;
         let mut cx: i32 = 0 - n;
 
@@ -272,7 +276,10 @@ impl Solutions {
     /// references to nodes inside the list. It assumes the list is a well-formed singly
     /// linked chain of `Box<ListNode>` and that `n` does not exceed the list length (as in
     /// the problem constraints). Violating these invariants is **undefined behavior**.
-    pub fn remove_nth_from_end_real_1_pass(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
+    pub fn remove_nth_from_end_real_1_pass(
+        head: Option<Box<ListNode>>,
+        n: i32,
+    ) -> Option<Box<ListNode>> {
         let mut dummy = Box::new(ListNode { val: 0, next: head });
 
         // Raw pointers to the same list:
@@ -330,11 +337,13 @@ mod remove_nth_node_from_end_of_the_list_tests {
                 assert_eq!(result, expected);
 
                 let head: Option<Box<ListNode>> = $head;
-                let result: Option<Box<ListNode>> = Solutions::remove_nth_from_end_one_and_half_pass(head, n);
+                let result: Option<Box<ListNode>> =
+                    Solutions::remove_nth_from_end_one_and_half_pass(head, n);
                 assert_eq!(result, expected);
 
                 let head: Option<Box<ListNode>> = $head;
-                let result: Option<Box<ListNode>> = Solutions::remove_nth_from_end_real_1_pass(head, n);
+                let result: Option<Box<ListNode>> =
+                    Solutions::remove_nth_from_end_real_1_pass(head, n);
                 assert_eq!(result, expected);
             }
         };
@@ -347,12 +356,7 @@ mod remove_nth_node_from_end_of_the_list_tests {
         test_case_1
     );
 
-    test_case!(
-        ListNode::build_from_vec(vec![1]),
-        1,
-        ListNode::build_from_vec(vec![]),
-        test_case_2
-    );
+    test_case!(ListNode::build_from_vec(vec![1]), 1, ListNode::build_from_vec(vec![]), test_case_2);
 
     test_case!(
         ListNode::build_from_vec(vec![5, 4, 3, 2, 1]),
