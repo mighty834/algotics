@@ -17,4 +17,5 @@ pub mod two_sum;
 pub mod valid_anagram;
 pub mod valid_palindrome;
 pub mod valid_sudoku;
-mod reverse_linked_list;
+pub mod reverse_linked_list;
+pub mod merge_two_sorted_lists;
