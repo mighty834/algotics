@@ -59,7 +59,10 @@ impl Solutions {
     /// # Complexity
     /// - Time: `O((n + m) log(n + m))` for sorting, plus linear scans to collect values
     /// - Extra space: `O(n + m)` for the vector and rebuilt nodes
-    pub fn merge_two_lists(list1: Option<Box<ListNode>>, list2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn merge_two_lists(
+        list1: Option<Box<ListNode>>,
+        list2: Option<Box<ListNode>>,
+    ) -> Option<Box<ListNode>> {
         let mut nodes: Vec<i32> = Vec::new();
 
         let mut node = list1.as_ref();
@@ -76,13 +79,10 @@ impl Solutions {
 
         nodes.sort();
 
-        nodes
-            .into_iter()
-            .rev()
-            .fold(None, |node, val| {
-                let prev_node = Box::new(ListNode { val, next: node });
-                Some(prev_node)
-            })
+        nodes.into_iter().rev().fold(None, |node, val| {
+            let prev_node = Box::new(ListNode { val, next: node });
+            Some(prev_node)
+        })
     }
 }
 
@@ -101,33 +101,43 @@ mod merge_two_lists_test {
                 let result: Option<Box<ListNode>> = Solutions::merge_two_lists(list1, list2);
                 assert_eq!(result, expected);
             }
-        }
+        };
     }
 
     test_case!(
         ListNode::build_from_vec(vec![1, 2, 3, 4]),
         ListNode::build_from_vec(vec![1, 2, 3, 4]),
-        ListNode::build_from_vec(vec![1, 1, 2, 2, 3, 3, 4, 4]), test_case_1);
+        ListNode::build_from_vec(vec![1, 1, 2, 2, 3, 3, 4, 4]),
+        test_case_1
+    );
 
     test_case!(None, None, None, test_case_2);
 
     test_case!(
         ListNode::build_from_vec(vec![2]),
         ListNode::build_from_vec(vec![1]),
-        ListNode::build_from_vec(vec![1, 2]), test_case_3);
+        ListNode::build_from_vec(vec![1, 2]),
+        test_case_3
+    );
 
     test_case!(
         ListNode::build_from_vec(vec![5, 6, 7, 8]),
         ListNode::build_from_vec(vec![1, 2, 3, 4]),
-        ListNode::build_from_vec(vec![1, 2, 3, 4, 5, 6, 7, 8]), test_case_4);
+        ListNode::build_from_vec(vec![1, 2, 3, 4, 5, 6, 7, 8]),
+        test_case_4
+    );
 
     test_case!(
         ListNode::build_from_vec(vec![1, 1, 1, 1]),
         ListNode::build_from_vec(vec![1, 1, 1, 1]),
-        ListNode::build_from_vec(vec![1, 1, 1, 1, 1, 1, 1, 1]), test_case_5);
+        ListNode::build_from_vec(vec![1, 1, 1, 1, 1, 1, 1, 1]),
+        test_case_5
+    );
 
     test_case!(
         ListNode::build_from_vec(vec![9, 0, 9, 0, 8, 9]),
         ListNode::build_from_vec(vec![4, 3, 4, 3, 2, 3]),
-        ListNode::build_from_vec(vec![0, 0, 2, 3, 3, 3, 4, 4, 8, 9, 9, 9]), test_case_6);
+        ListNode::build_from_vec(vec![0, 0, 2, 3, 3, 3, 4, 4, 8, 9, 9, 9]),
+        test_case_6
+    );
 }

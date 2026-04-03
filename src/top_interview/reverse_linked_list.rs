@@ -65,12 +65,10 @@ impl Solutions {
             node = node.unwrap().next;
         }
 
-        nodes
-            .into_iter()
-            .fold(None, |node, val| {
-                let prev_node = Box::new(ListNode { val, next: node });
-                Some(prev_node)
-            })
+        nodes.into_iter().fold(None, |node, val| {
+            let prev_node = Box::new(ListNode { val, next: node });
+            Some(prev_node)
+        })
     }
 }
 
@@ -88,13 +86,14 @@ mod reverse_linked_list_tests {
                 let result = Solutions::reverse_list(head);
                 assert_eq!(result, expected);
             }
-        }
+        };
     }
 
     test_case!(
         ListNode::build_from_vec(vec![1, 2, 3, 4, 5]),
         ListNode::build_from_vec(vec![5, 4, 3, 2, 1]),
-        test_case_1);
+        test_case_1
+    );
 
     test_case!(ListNode::build_from_vec(vec![]), ListNode::build_from_vec(vec![]), test_case_2);
 
@@ -103,15 +102,18 @@ mod reverse_linked_list_tests {
     test_case!(
         ListNode::build_from_vec(vec![-100, -200, -300, -400, -500]),
         ListNode::build_from_vec(vec![-500, -400, -300, -200, -100]),
-        test_case_4);
+        test_case_4
+    );
 
     test_case!(
         ListNode::build_from_vec(vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
         ListNode::build_from_vec(vec![10, 9, 8, 7, 6, 5, 4, 3, 2, 1]),
-        test_case_5);
+        test_case_5
+    );
 
     test_case!(
         ListNode::build_from_vec(vec![67, 23, -1]),
         ListNode::build_from_vec(vec![-1, 23, 67]),
-        test_case_6);
+        test_case_6
+    );
 }
