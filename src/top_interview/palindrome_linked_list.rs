@@ -61,11 +61,8 @@ impl Solutions {
 
         let half: usize = nodes.len() / 2;
         let left = &nodes[..half];
-        let right: Vec<i32> = nodes[nodes.len() - half..]
-            .into_iter()
-            .rev()
-            .map(|val| *val)
-            .collect();
+        let right: Vec<i32> =
+            nodes[nodes.len() - half..].into_iter().rev().map(|val| *val).collect();
 
         left == right
     }
@@ -85,46 +82,26 @@ mod palindrome_linked_list_tests {
                 let result: bool = Solutions::is_palindrome(head);
                 assert_eq!(result, expected);
             }
-        }
+        };
     }
 
-    test_case!(
-        ListNode::build_from_vec(vec![1, 2, 3, 4, 5]),
-        false,
-        test_case_1);
+    test_case!(ListNode::build_from_vec(vec![1, 2, 3, 4, 5]), false, test_case_1);
 
-    test_case!(
-        ListNode::build_from_vec(vec![1, 2, 3, 2, 1]),
-        true,
-        test_case_2);
+    test_case!(ListNode::build_from_vec(vec![1, 2, 3, 2, 1]), true, test_case_2);
 
-    test_case!(
-        ListNode::build_from_vec(vec![1]),
-        true,
-        test_case_3);
+    test_case!(ListNode::build_from_vec(vec![1]), true, test_case_3);
 
-    test_case!(
-        ListNode::build_from_vec(vec![1, 2]),
-        false,
-        test_case_4);
+    test_case!(ListNode::build_from_vec(vec![1, 2]), false, test_case_4);
 
     test_case!(
         ListNode::build_from_vec(vec![-100, -200, -300, -300, -200, -100]),
         true,
-        test_case_5);
+        test_case_5
+    );
 
-    test_case!(
-        ListNode::build_from_vec(vec![1, 2, 3, 4, 5, 5, 4, 3, 2, 1]),
-        true,
-        test_case_6);
+    test_case!(ListNode::build_from_vec(vec![1, 2, 3, 4, 5, 5, 4, 3, 2, 1]), true, test_case_6);
 
-    test_case!(
-        ListNode::build_from_vec(vec![1, 2, 3, 4, 3, 2, 0]),
-        false,
-        test_case_7);
+    test_case!(ListNode::build_from_vec(vec![1, 2, 3, 4, 3, 2, 0]), false, test_case_7);
 
-    test_case!(
-        ListNode::build_from_vec(vec![1, 2, 3, 4, 5, 6, 4, 3, 2, 1]),
-        false,
-        test_case_8);
+    test_case!(ListNode::build_from_vec(vec![1, 2, 3, 4, 5, 6, 4, 3, 2, 1]), false, test_case_8);
 }

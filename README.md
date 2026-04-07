@@ -75,6 +75,9 @@ cargo test merge_two_sorted_lists
 # Palindrome Linked List
 cargo test palindrome_linked_list
 
+# Maximum Depth of Binary Tree
+cargo test maximum_depth_of_binary_tree
+
 # Reverse String
 cargo test reverse_string
 
@@ -118,6 +121,7 @@ cargo test
 | **Reverse Linked List** | `reverse_linked_list` | Reverse a singly linked list by collecting values and rebuilding with prepended nodes (`fold`). |
 | **Merge Two Sorted Lists** | `merge_two_sorted_lists` | Merge two sorted linked lists into one sorted list (collect values, sort, rebuild new nodes). |
 | **Palindrome Linked List** | `palindrome_linked_list` | Check if a linked list is a palindrome (collect values and compare mirrored halves). |
+| **Maximum Depth of Binary Tree** | `maximum_depth_of_binary_tree` | Compute tree height via DFS recursion; return the longest root-to-leaf path length. |
 
 ---
 
@@ -148,6 +152,7 @@ algotics/
 │       ├── reverse_linked_list.rs
 │       ├── merge_two_sorted_lists.rs
 │       ├── palindrome_linked_list.rs
+│       ├── maximum_depth_of_binary_tree.rs
 │       ├── reverse_string.rs
 │       └── reverse_integer.rs
 ├── Cargo.toml
