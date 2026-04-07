@@ -19,3 +19,4 @@ pub mod two_sum;
 pub mod valid_anagram;
 pub mod valid_palindrome;
 pub mod valid_sudoku;
+pub mod palindrome_linked_list;

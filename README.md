@@ -72,6 +72,9 @@ cargo test reverse_linked_list
 # Merge Two Sorted Lists
 cargo test merge_two_sorted_lists
 
+# Palindrome Linked List
+cargo test palindrome_linked_list
+
 # Reverse String
 cargo test reverse_string
 
@@ -114,6 +117,7 @@ cargo test
 | **Remove Nth Node From End of List** | `remove_nth_node_from_end_of_the_list` | Remove the n-th node from the end of a singly linked list (vector rebuild and two-pass pointer rewiring). |
 | **Reverse Linked List** | `reverse_linked_list` | Reverse a singly linked list by collecting values and rebuilding with prepended nodes (`fold`). |
 | **Merge Two Sorted Lists** | `merge_two_sorted_lists` | Merge two sorted linked lists into one sorted list (collect values, sort, rebuild new nodes). |
+| **Palindrome Linked List** | `palindrome_linked_list` | Check if a linked list is a palindrome (collect values and compare mirrored halves). |
 
 ---
 
@@ -143,6 +147,7 @@ algotics/
 │       ├── remove_nth_node_from_end_of_the_list.rs
 │       ├── reverse_linked_list.rs
 │       ├── merge_two_sorted_lists.rs
+│       ├── palindrome_linked_list.rs
 │       ├── reverse_string.rs
 │       └── reverse_integer.rs
 ├── Cargo.toml
