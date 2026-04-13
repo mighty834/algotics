@@ -84,6 +84,69 @@ impl Solutions {
             Some(prev_node)
         })
     }
+
+    /// Merges two sorted linked lists, collecting values in parallel (one thread) and rebuilding a new list.
+    ///
+    /// **Idea**
+    /// - Spawn a thread to traverse `list1` and collect its values into a `Vec<i32>`.
+    /// - Traverse `list2` on the current thread and collect its values.
+    /// - Join the thread, append both vectors, then sort the combined values.
+    /// - Build a new sorted list by folding from the end (prepending new `ListNode`s).
+    ///
+    /// This produces the correct sorted merged output, but like
+    /// [`merge_two_lists`](Self::merge_two_lists) it does **not** splice existing nodes: it
+    /// allocates a brand-new list from the collected values.
+    ///
+    /// # Arguments
+    /// - `list1`: Head of the first sorted list (or `None`).
+    /// - `list2`: Head of the second sorted list (or `None`).
+    ///
+    /// # Returns
+    /// Head of a new merged list containing all values from both inputs in sorted order.
+    ///
+    /// # Complexity
+    /// - Time: `O((n + m) log(n + m))` dominated by sorting, plus linear collection work
+    /// - Extra space: `O(n + m)` for vectors and rebuilt nodes
+    ///
+    /// # Notes
+    /// - Spawning a thread has overhead; for small lists this can be slower than the
+    ///   single-threaded version.
+    /// - This uses `JoinHandle::join().unwrap()`: a panic in the spawned thread will panic
+    ///   here as well.
+    pub fn merge_two_lists_parallel(
+        list1: Option<Box<ListNode>>,
+        list2: Option<Box<ListNode>>,
+    ) -> Option<Box<ListNode>> {
+        use std::thread::{JoinHandle, spawn};
+
+        let v1: JoinHandle<Vec<i32>> = spawn(move || {
+            let mut nodes: Vec<i32> = Vec::new();
+
+            let mut node = list1.as_ref();
+            while node.is_some() {
+                nodes.push(node.unwrap().val);
+                node = node.unwrap().next.as_ref();
+            }
+
+            nodes
+        });
+
+        let mut nodes: Vec<i32> = Vec::new();
+        let mut node = list2.as_ref();
+        while node.is_some() {
+            nodes.push(node.unwrap().val);
+            node = node.unwrap().next.as_ref();
+        }
+
+        let mut v1 = v1.join().unwrap();
+        nodes.append(&mut v1);
+        nodes.sort();
+
+        nodes.into_iter().rev().fold(None, |node, val| {
+            let prev_node = Box::new(ListNode { val, next: node });
+            Some(prev_node)
+        })
+    }
 }
 
 #[cfg(test)]
@@ -99,6 +162,12 @@ mod merge_two_lists_test {
                 let expected: Option<Box<ListNode>> = $expected;
 
                 let result: Option<Box<ListNode>> = Solutions::merge_two_lists(list1, list2);
+                assert_eq!(result, expected);
+
+                let list1: Option<Box<ListNode>> = $list1;
+                let list2: Option<Box<ListNode>> = $list2;
+                let result: Option<Box<ListNode>> =
+                    Solutions::merge_two_lists_parallel(list1, list2);
                 assert_eq!(result, expected);
             }
         };
