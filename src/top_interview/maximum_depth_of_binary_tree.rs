@@ -79,7 +79,7 @@ mod maximum_depth_of_binary_tree_tests {
         ($root: expr, $expected: expr, $fn_name: ident) => {
             #[test]
             fn $fn_name() {
-                let root: Option<Rc<RefCell<TreeNode>>> = $root;
+                let root: Option<Rc<RefCell<TreeNode>>> = TreeNode::build_from_int_vec($root, NONE);
                 let expected: i32 = $expected;
 
                 let result: i32 = Solutions::max_depth(root);
@@ -88,29 +88,17 @@ mod maximum_depth_of_binary_tree_tests {
         };
     }
 
-    test_case!(
-        TreeNode::build_from_int_vec(vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10], NONE),
-        4,
-        test_case_1
-    );
+    test_case!(vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4, test_case_1);
 
-    test_case!(TreeNode::build_from_int_vec(vec![1, NONE, 2, 3, 4, 5], NONE), 4, test_case_2);
+    test_case!(vec![1, NONE, 2, 3, 4, 5], 4, test_case_2);
 
-    test_case!(TreeNode::build_from_vec(vec![Some(1)]), 1, test_case_3);
+    test_case!(vec![1], 1, test_case_3);
 
-    test_case!(
-        TreeNode::build_from_int_vec(vec![3, 9, 20, NONE, NONE, 15, 7], NONE),
-        3,
-        test_case_4
-    );
+    test_case!(vec![3, 9, 20, NONE, NONE, 15, 7], 3, test_case_4);
 
-    test_case!(TreeNode::build_from_int_vec(vec![1, NONE, 2], NONE), 2, test_case_5);
+    test_case!(vec![1, NONE, 2], 2, test_case_5);
 
-    test_case!(
-        TreeNode::build_from_int_vec(vec![1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], NONE),
-        5,
-        test_case_6
-    );
+    test_case!(vec![1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 5, test_case_6);
 
-    test_case!(TreeNode::build_from_vec(vec![]), 0, test_case_7);
+    test_case!(vec![], 0, test_case_7);
 }

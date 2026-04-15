@@ -21,3 +21,4 @@ pub mod two_sum;
 pub mod valid_anagram;
 pub mod valid_palindrome;
 pub mod valid_sudoku;
+pub mod validate_binary_search_tree;

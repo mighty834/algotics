@@ -78,6 +78,9 @@ cargo test palindrome_linked_list
 # Maximum Depth of Binary Tree
 cargo test maximum_depth_of_binary_tree
 
+# Validate Binary Search Tree
+cargo test validate_binary_search_tree
+
 # Reverse String
 cargo test reverse_string
 
@@ -122,6 +125,7 @@ cargo test
 | **Merge Two Sorted Lists** | `merge_two_sorted_lists` | Merge two sorted linked lists into one sorted list (collect values, sort, rebuild new nodes). |
 | **Palindrome Linked List** | `palindrome_linked_list` | Check if a linked list is a palindrome (collect values and compare mirrored halves). |
 | **Maximum Depth of Binary Tree** | `maximum_depth_of_binary_tree` | Compute tree height via DFS recursion; return the longest root-to-leaf path length. |
+| **Validate Binary Search Tree** | `validate_binary_search_tree` | Validate BST ordering (strict inequalities) across the whole tree. |
 
 ---
 
@@ -153,6 +157,7 @@ algotics/
 │       ├── merge_two_sorted_lists.rs
 │       ├── palindrome_linked_list.rs
 │       ├── maximum_depth_of_binary_tree.rs
+│       ├── validate_binary_search_tree.rs
 │       ├── reverse_string.rs
 │       └── reverse_integer.rs
 ├── Cargo.toml
