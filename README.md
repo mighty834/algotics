@@ -18,6 +18,9 @@ cargo test <module_name>
 # Rotate Array — all unit tests in that module
 cargo test rotate_array
 
+# Rotate Image (matrix 90° clockwise)
+cargo test rotate_image
+
 # Remove Duplicates from Sorted Array
 cargo test remove_duplicates_from_sorted_array
 
@@ -106,6 +109,7 @@ cargo test
 | Problem | Module | Notes |
 |--------|--------|--------|
 | **Rotate Array** | `rotate_array` | Rotate to the right by `k`; several approaches (stdlib, slices, iterators, …). |
+| **Rotate Image** | `rotate_image` | Rotate an `n × n` matrix 90° clockwise; builds a temp grid then copies back (`O(n²)` extra space). |
 | **Remove Duplicates from Sorted Array** | `remove_duplicates_from_sorted_array` | In-place dedup of a sorted vector; returns length of unique prefix. |
 | **Best Time to Buy and Sell Stock II** | `best_time_to_buy_and_sell_stock_2` | Unlimited trades, one share at a time; greedy max profit from daily price series. |
 | **Contains Duplicate** | `contains_duplicate` | Detect duplicates (brute-force, `HashSet` length, single-pass inserts, `contains` + `insert`, …). |
@@ -141,6 +145,7 @@ algotics/
 │   ├── lib.rs
 │   └── top_interview/
 │       ├── rotate_array.rs
+│       ├── rotate_image.rs
 │       ├── remove_duplicates_from_sorted_array.rs
 │       ├── best_time_to_buy_and_sell_stock_2.rs
 │       ├── contains_duplicate.rs
