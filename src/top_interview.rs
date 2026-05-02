@@ -24,3 +24,4 @@ pub mod valid_palindrome;
 pub mod valid_sudoku;
 pub mod validate_binary_search_tree;
 pub mod rotate_image;
+pub mod merge_sorted_array;

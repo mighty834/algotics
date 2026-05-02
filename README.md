@@ -75,6 +75,9 @@ cargo test reverse_linked_list
 # Merge Two Sorted Lists
 cargo test merge_two_sorted_lists
 
+# Merge Sorted Array
+cargo test merge_sorted_array
+
 # Palindrome Linked List
 cargo test palindrome_linked_list
 
@@ -130,6 +133,7 @@ cargo test
 | **Remove Nth Node From End of List** | `remove_nth_node_from_end_of_the_list` | Remove the n-th node from the end of a singly linked list (vector rebuild and two-pass pointer rewiring). |
 | **Reverse Linked List** | `reverse_linked_list` | Reverse a singly linked list by collecting values and rebuilding with prepended nodes (`fold`). |
 | **Merge Two Sorted Lists** | `merge_two_sorted_lists` | Merge two sorted linked lists into one sorted list (collect values, sort, rebuild new nodes). |
+| **Merge Sorted Array** | `merge_sorted_array` | Merge two sorted vectors into `nums1` (length `m+n`): drain tail, insert each `nums2` head into sorted position (`insert` / `remove(0)`). |
 | **Palindrome Linked List** | `palindrome_linked_list` | Check if a linked list is a palindrome (collect values and compare mirrored halves). |
 | **Maximum Depth of Binary Tree** | `maximum_depth_of_binary_tree` | Compute tree height via DFS recursion; return the longest root-to-leaf path length. |
 | **Validate Binary Search Tree** | `validate_binary_search_tree` | Validate BST ordering (strict inequalities) across the whole tree. |
@@ -164,6 +168,7 @@ algotics/
 │       ├── remove_nth_node_from_end_of_the_list.rs
 │       ├── reverse_linked_list.rs
 │       ├── merge_two_sorted_lists.rs
+│       ├── merge_sorted_array.rs
 │       ├── palindrome_linked_list.rs
 │       ├── maximum_depth_of_binary_tree.rs
 │       ├── validate_binary_search_tree.rs
