@@ -17,6 +17,7 @@ pub mod reverse_string;
 pub mod rotate_array;
 pub mod single_number;
 pub mod string_to_integer_atoi;
+pub mod symmetric_tree;
 pub mod two_sum;
 pub mod valid_anagram;
 pub mod valid_palindrome;
