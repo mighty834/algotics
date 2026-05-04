@@ -62,7 +62,7 @@ impl Solutions {
         let half: usize = nodes.len() / 2;
         let left = &nodes[..half];
         let right: Vec<i32> =
-            nodes[nodes.len() - half..].into_iter().rev().map(|val| *val).collect();
+            nodes[nodes.len() - half..].iter().rev().copied().collect();
 
         left == right
     }

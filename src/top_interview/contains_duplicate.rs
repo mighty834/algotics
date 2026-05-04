@@ -62,7 +62,7 @@ impl Solutions {
             }
         }
 
-        return false;
+        false
     }
 
     /// Duplicate check via [`HashSet`](std::collections::HashSet): compare length with unique count.
@@ -83,7 +83,7 @@ impl Solutions {
         let nums_len: usize = nums.len();
 
         let set: HashSet<i32> = nums.into_iter().collect();
-        return nums_len != set.len();
+        nums_len != set.len()
     }
 
     /// Duplicate check with a single pass over [`HashSet`](std::collections::HashSet) inserts.
@@ -113,7 +113,7 @@ impl Solutions {
             }
         }
 
-        return false;
+        false
     }
 
     /// Duplicate check with an explicit [`HashSet::contains`](std::collections::HashSet::contains)
@@ -144,7 +144,7 @@ impl Solutions {
             set.insert(nums[i]);
         }
 
-        return false;
+        false
     }
 
     /// Duplicate check with a **direct-address bit table** over the assumed value range.
@@ -184,7 +184,7 @@ impl Solutions {
             big_vec[get_index(nums[i]) as usize] = true;
         }
 
-        return false;
+        false
     }
 }
 

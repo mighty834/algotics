@@ -80,7 +80,7 @@ impl Solutions {
             }
         }
 
-        return result;
+        result
     }
 
     pub fn max_profit_with_windows(prices: Vec<i32>) -> i32 {

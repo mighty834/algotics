@@ -99,46 +99,24 @@ mod rotate_image_tests {
                 Solutions::rotate(&mut matrix);
                 assert_eq!(matrix, expected);
             }
-        }
+        };
     }
 
     test_case!(
-        vec![
-            vec![1, 2, 3],
-            vec![4, 5, 6],
-            vec![7, 8, 9]
-        ],
-        vec![
-            vec![7, 4, 1],
-            vec![8, 5, 2],
-            vec![9, 6, 3]
-        ], test_case_1);
+        vec![vec![1, 2, 3], vec![4, 5, 6], vec![7, 8, 9]],
+        vec![vec![7, 4, 1], vec![8, 5, 2], vec![9, 6, 3]],
+        test_case_1
+    );
 
-    test_case!(
-        vec![
-            vec![1, 2],
-            vec![3, 4]
-        ],
-        vec![
-            vec![3, 1],
-            vec![4, 2]
-        ], test_case_2);
+    test_case!(vec![vec![1, 2], vec![3, 4]], vec![vec![3, 1], vec![4, 2]], test_case_2);
 
     test_case!(vec![vec![1]], vec![vec![1]], test_case_3);
 
     test_case!(
-        vec![
-            vec![1, 2, 3, 4],
-            vec![5, 6, 7, 8],
-            vec![9, 10, 11, 12],
-            vec![13, 14, 15, 16]
-        ],
-        vec![
-            vec![13, 9, 5, 1],
-            vec![14, 10, 6, 2],
-            vec![15, 11, 7, 3],
-            vec![16, 12, 8, 4]
-        ], test_case_4);
+        vec![vec![1, 2, 3, 4], vec![5, 6, 7, 8], vec![9, 10, 11, 12], vec![13, 14, 15, 16]],
+        vec![vec![13, 9, 5, 1], vec![14, 10, 6, 2], vec![15, 11, 7, 3], vec![16, 12, 8, 4]],
+        test_case_4
+    );
 
     test_case!(
         vec![
@@ -154,5 +132,7 @@ mod rotate_image_tests {
             vec![23, 18, 13, 8, 3],
             vec![24, 19, 14, 9, 4],
             vec![25, 20, 15, 10, 5]
-        ], test_case_5);
+        ],
+        test_case_5
+    );
 }

@@ -77,7 +77,7 @@ impl Solutions {
             }
         }
 
-        return result;
+        result
     }
 }
 

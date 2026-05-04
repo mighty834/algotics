@@ -30,6 +30,9 @@ cargo test best_time_to_buy_and_sell_stock_2
 # Contains Duplicate
 cargo test contains_duplicate
 
+# Climbing Stairs
+cargo test climbing_stairs
+
 # Single Number
 cargo test single_number
 
@@ -119,6 +122,7 @@ cargo test
 | **Remove Duplicates from Sorted Array** | `remove_duplicates_from_sorted_array` | In-place dedup of a sorted vector; returns length of unique prefix. |
 | **Best Time to Buy and Sell Stock II** | `best_time_to_buy_and_sell_stock_2` | Unlimited trades, one share at a time; greedy max profit from daily price series. |
 | **Contains Duplicate** | `contains_duplicate` | Detect duplicates (brute-force, `HashSet` length, single-pass inserts, `contains` + `insert`, …). |
+| **Climbing Stairs** | `climbing_stairs` | Count ways to climb `n` steps with 1- or 2-step moves; Fibonacci recurrence with two variables (`O(n)` time, `O(1)` space). |
 | **Single Number** | `single_number` | Find the unique element when every other value appears exactly twice. |
 | **Intersection of Two Arrays II** | `intersection_of_two_arrays_2` | Return common values with multiplicity using sort + two pointers. |
 | **Plus One** | `plus_one` | Increment a big-endian digit vector by one (carry from the right). |
@@ -157,6 +161,7 @@ algotics/
 │       ├── remove_duplicates_from_sorted_array.rs
 │       ├── best_time_to_buy_and_sell_stock_2.rs
 │       ├── contains_duplicate.rs
+│       ├── climbing_stairs.rs
 │       ├── single_number.rs
 │       ├── intersection_of_two_arrays_2.rs
 │       ├── plus_one.rs

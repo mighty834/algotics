@@ -62,7 +62,7 @@ impl Solutions {
     pub fn reverse_string_with_iter(s: &mut Vec<char>) {
         let s_twin = s.clone();
 
-        s.clone_from_slice(&s_twin.iter().rev().map(|c| *c).collect::<Vec<char>>())
+        s.clone_from_slice(&s_twin.iter().rev().copied().collect::<Vec<char>>())
     }
 }
 

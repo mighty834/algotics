@@ -69,7 +69,7 @@ impl Solutions {
             }
         }
 
-        return cx as i32;
+        cx as i32
     }
 
     /// Collect unique values into a [`BTreeSet`](std::collections::BTreeSet), then copy
@@ -96,12 +96,12 @@ impl Solutions {
     pub fn throw_hash_set(nums: &mut Vec<i32>) -> i32 {
         use std::collections::BTreeSet;
 
-        let set: BTreeSet<i32> = nums.iter().map(|i| *i).collect();
+        let set: BTreeSet<i32> = nums.iter().copied().collect();
         for (i, v) in set.iter().enumerate() {
             nums[i] = *v;
         }
 
-        return set.len() as i32;
+        set.len() as i32
     }
 }
 

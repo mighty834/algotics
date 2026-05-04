@@ -128,7 +128,7 @@ impl Solutions {
             curr = &mut curr.as_mut()?.next;
         }
 
-        let mut next = &mut curr.as_mut()?.next;
+        let next = &mut curr.as_mut()?.next;
         curr.as_mut()?.next = next.as_mut()?.next.take();
 
         node
@@ -163,7 +163,7 @@ impl Solutions {
         head: Option<Box<ListNode>>,
         n: i32,
     ) -> Option<Box<ListNode>> {
-        let (mut new_head, mut head) = (head.clone(), head);
+        let (mut new_head, head) = (head.clone(), head);
         let mut fast = &head;
         let mut slow: &mut Option<Box<ListNode>> = &mut None;
         let mut cx: i32 = 0 - n;
@@ -185,7 +185,7 @@ impl Solutions {
             return head?.next;
         }
 
-        let mut next = &mut slow.as_mut()?.next;
+        let next = &mut slow.as_mut()?.next;
         slow.as_mut()?.next = next.as_mut()?.next.take();
 
         new_head
@@ -237,7 +237,7 @@ impl Solutions {
             slow = &mut slow.as_mut()?.next;
         }
 
-        let mut next = &mut slow.as_mut()?.next;
+        let next = &mut slow.as_mut()?.next;
         slow.as_mut()?.next = next.as_mut()?.next.take();
 
         head

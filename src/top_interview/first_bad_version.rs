@@ -40,7 +40,7 @@
 /// - The `isBadVersion` API is defined externally.
 /// - You should aim to minimize the number of API calls (e.g., using binary search).
 pub struct Solutions {
-    bad: i32
+    bad: i32,
 }
 
 impl Solutions {
@@ -114,7 +114,7 @@ mod first_bad_version_tests {
                 let result: i32 = solution.first_bad_version(n);
                 assert_eq!(expected, result);
             }
-        }
+        };
     }
 
     test_case!(5, 4, test_case_1);

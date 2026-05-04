@@ -77,8 +77,8 @@ impl Solutions {
         let mut storage: HashMap<char, [i32; 2]> = HashMap::with_capacity(s.len());
 
         for (i, c) in s.chars().enumerate() {
-            if !storage.contains_key(&c) {
-                storage.insert(c, [i as i32, 1]);
+            if let std::collections::hash_map::Entry::Vacant(e) = storage.entry(c) {
+                e.insert([i as i32, 1]);
             } else {
                 storage.get_mut(&c).unwrap()[1] += 1;
             }
@@ -136,11 +136,11 @@ impl Solutions {
 
         for (i, c) in s.chars().enumerate() {
             if !bad_values.contains(&c) {
-                if good_values.contains_key(&c) {
+                if let std::collections::hash_map::Entry::Vacant(e) = good_values.entry(c) {
+                    e.insert(i as i32);
+                } else {
                     good_values.remove(&c);
                     bad_values.insert(c);
-                } else {
-                    good_values.insert(c, i as i32);
                 }
             }
         }

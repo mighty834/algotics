@@ -97,7 +97,7 @@ impl Solutions {
     pub fn merge(nums1: &mut Vec<i32>, m: i32, nums2: &mut Vec<i32>, n: i32) {
         nums1.drain(m as usize..(m + n) as usize);
 
-        'outer: while nums2.len() != 0 {
+        'outer: while !nums2.is_empty() {
             let val = nums2.remove(0);
             let mut cx = 0;
 
@@ -138,44 +138,16 @@ mod merge_sorted_array_tests {
         };
     }
 
-    test_case!(
-        vec![1, 2, 0, 0],
-        2,
-        vec![3, 4],
-        2,
-        vec![1, 2, 3, 4],
-        test_case_1
-    );
+    test_case!(vec![1, 2, 0, 0], 2, vec![3, 4], 2, vec![1, 2, 3, 4], test_case_1);
 
-    test_case!(
-        vec![1, 2, 3, 0, 0, 0],
-        3,
-        vec![2, 5, 6],
-        3,
-        vec![1, 2, 2, 3, 5, 6],
-        test_case_2
-    );
+    test_case!(vec![1, 2, 3, 0, 0, 0], 3, vec![2, 5, 6], 3, vec![1, 2, 2, 3, 5, 6], test_case_2);
 
-    test_case!(
-        vec![5, 6, 7, 0, 0, 0],
-        3,
-        vec![1, 2, 3],
-        3,
-        vec![1, 2, 3, 5, 6, 7],
-        test_case_3
-    );
+    test_case!(vec![5, 6, 7, 0, 0, 0], 3, vec![1, 2, 3], 3, vec![1, 2, 3, 5, 6, 7], test_case_3);
 
     test_case!(vec![0], 0, vec![1], 1, vec![1], test_case_4);
     test_case!(vec![1], 1, vec![], 0, vec![1], test_case_5);
 
-    test_case!(
-        vec![1, 4, 8, 0, 0],
-        3,
-        vec![2, 7],
-        2,
-        vec![1, 2, 4, 7, 8],
-        test_case_6
-    );
+    test_case!(vec![1, 4, 8, 0, 0], 3, vec![2, 7], 2, vec![1, 2, 4, 7, 8], test_case_6);
 
     test_case!(
         vec![1, 2, 3, 4, 6, 7, 8, 9, 0],
@@ -195,12 +167,5 @@ mod merge_sorted_array_tests {
         test_case_8
     );
 
-    test_case!(
-        vec![1, 2, 3, 0, 0, 0],
-        3,
-        vec![4, 5, 6],
-        3,
-        vec![1, 2, 3, 4, 5, 6],
-        test_case_9
-    );
+    test_case!(vec![1, 2, 3, 0, 0, 0], 3, vec![4, 5, 6], 3, vec![1, 2, 3, 4, 5, 6], test_case_9);
 }

@@ -112,7 +112,7 @@ impl Solutions {
         let mut s = s.trim();
         let is_positive: bool;
 
-        if s.len() == 0 {
+        if s.is_empty() {
             return 0;
         }
 
@@ -147,9 +147,9 @@ impl Solutions {
         let s = if is_positive { format!("+{}", s) } else { format!("-{}", s) };
 
         let result: i32 = match s.parse::<i32>() {
-            Ok(x) => x as i32,
+            Ok(x) => x,
             Err(_) => {
-                if !s.chars().skip(1).next().unwrap().is_numeric() {
+                if !s.chars().nth(1).unwrap().is_numeric() {
                     return 0;
                 }
 
