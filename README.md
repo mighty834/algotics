@@ -57,6 +57,9 @@ cargo test valid_palindrome
 # First Unique Character in a String
 cargo test first_unique_character_in_a_string
 
+# First Bad Version
+cargo test first_bad_version
+
 # String to Integer (atoi)
 cargo test string_to_integer_atoi
 
@@ -127,6 +130,7 @@ cargo test
 | **Reverse String** | `reverse_string` | Reverse a `Vec<char>` in place (`Vec::reverse`) and an iterator-based variant. |
 | **Reverse Integer** | `reverse_integer` | Reverse decimal digits of a signed 32-bit integer; return `0` on overflow. |
 | **First Unique Character in a String** | `first_unique_character_in_a_string` | Return the zero-based index of the first non-repeating character, or `-1` if none exists. |
+| **First Bad Version** | `first_bad_version` | Binary search on `1..=n` with `isBadVersion`; midpoint via `u32` to avoid `i32` overflow. |
 | **String to Integer (atoi)** | `string_to_integer_atoi` | Parse a string to `i32`: trim, optional sign, digit run, clamp on overflow. |
 | **Implement strStr()** | `implement_str_str` | Return the first index of `needle` in `haystack`, or `-1` if not found. |
 | **Longest Common Prefix** | `longest_common_prefix` | Longest prefix shared by all strings (column-wise compare up to the shortest length). |
@@ -161,6 +165,7 @@ algotics/
 │       ├── valid_sudoku.rs
 │       ├── valid_anagram.rs
 │       ├── valid_palindrome.rs
+│       ├── first_bad_version.rs
 │       ├── first_unique_character_in_a_string.rs
 │       ├── string_to_integer_atoi.rs
 │       ├── implement_str_str.rs
