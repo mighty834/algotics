@@ -63,16 +63,18 @@ impl Solutions {
                 return true;
             }
 
-            if node_1.is_some() && node_2.is_some()
-                && node_1.as_ref().unwrap().borrow().val == node_2.as_ref().unwrap().borrow().val {
-                    return rec_checking(
-                        &node_1.as_ref().unwrap().borrow().left,
-                        &node_2.as_ref().unwrap().borrow().right,
-                    ) && rec_checking(
-                        &node_1.as_ref().unwrap().borrow().right,
-                        &node_2.as_ref().unwrap().borrow().left,
-                    );
-                }
+            if node_1.is_some()
+                && node_2.is_some()
+                && node_1.as_ref().unwrap().borrow().val == node_2.as_ref().unwrap().borrow().val
+            {
+                return rec_checking(
+                    &node_1.as_ref().unwrap().borrow().left,
+                    &node_2.as_ref().unwrap().borrow().right,
+                ) && rec_checking(
+                    &node_1.as_ref().unwrap().borrow().right,
+                    &node_2.as_ref().unwrap().borrow().left,
+                );
+            }
 
             false
         }

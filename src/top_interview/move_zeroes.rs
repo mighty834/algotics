@@ -101,7 +101,8 @@ impl Solutions {
         let temp: Vec<i32> = nums
             .iter()
             .filter(|&x| *x != 0)
-            .chain(nums.iter().filter(|&x| *x == 0)).copied()
+            .chain(nums.iter().filter(|&x| *x == 0))
+            .copied()
             .collect();
 
         nums.clone_from_slice(&temp);
