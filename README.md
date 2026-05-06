@@ -90,6 +90,9 @@ cargo test merge_sorted_array
 # Palindrome Linked List
 cargo test palindrome_linked_list
 
+# Maximum Subarray
+cargo test maximum_subarray
+
 # Maximum Depth of Binary Tree
 cargo test maximum_depth_of_binary_tree
 
@@ -147,6 +150,7 @@ cargo test
 | **Merge Two Sorted Lists** | `merge_two_sorted_lists` | Merge two sorted linked lists into one sorted list (collect values, sort, rebuild new nodes). |
 | **Merge Sorted Array** | `merge_sorted_array` | Merge two sorted vectors into `nums1` (length `m+n`): drain tail, insert each `nums2` head into sorted position (`insert` / `remove(0)`). |
 | **Palindrome Linked List** | `palindrome_linked_list` | Check if a linked list is a palindrome (collect values and compare mirrored halves). |
+| **Maximum Subarray** | `maximum_subarray` | Max sum over a non-empty contiguous subarray (Kadane-style one-pass DP with running best). |
 | **Maximum Depth of Binary Tree** | `maximum_depth_of_binary_tree` | Compute tree height via DFS recursion; return the longest root-to-leaf path length. |
 | **Validate Binary Search Tree** | `validate_binary_search_tree` | Validate BST ordering (strict inequalities) across the whole tree. |
 | **Symmetric Tree** | `symmetric_tree` | Check whether a binary tree is a mirror of itself (left and right subtrees mirror-matched recursively). |
@@ -185,6 +189,7 @@ algotics/
 │       ├── merge_two_sorted_lists.rs
 │       ├── merge_sorted_array.rs
 │       ├── palindrome_linked_list.rs
+│       ├── maximum_subarray.rs
 │       ├── maximum_depth_of_binary_tree.rs
 │       ├── validate_binary_search_tree.rs
 │       ├── symmetric_tree.rs

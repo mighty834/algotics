@@ -8,6 +8,7 @@ pub mod implement_str_str;
 pub mod intersection_of_two_arrays_2;
 pub mod longest_common_prefix;
 pub mod maximum_depth_of_binary_tree;
+pub mod maximum_subarray;
 pub mod merge_sorted_array;
 pub mod merge_two_sorted_lists;
 pub mod move_zeroes;
