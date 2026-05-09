@@ -110,7 +110,7 @@ mod house_robber_tests {
 
                 assert_eq!(result, expected);
             }
-        }
+        };
     }
 
     test_case!(vec![1, 2, 3, 1], 4, test_case_1);

@@ -111,6 +111,9 @@ cargo test reverse_string
 # Reverse Integer
 cargo test reverse_integer
 
+# Shuffle an Array
+cargo test shuffle_an_array
+
 # Everything under `top_interview`
 cargo test top_interview
 
@@ -158,6 +161,7 @@ cargo test
 | **Maximum Depth of Binary Tree** | `maximum_depth_of_binary_tree` | Compute tree height via DFS recursion; return the longest root-to-leaf path length. |
 | **Validate Binary Search Tree** | `validate_binary_search_tree` | Validate BST ordering (strict inequalities) across the whole tree. |
 | **Symmetric Tree** | `symmetric_tree` | Check whether a binary tree is a mirror of itself (left and right subtrees mirror-matched recursively). |
+| **Shuffle an Array** | `shuffle_an_array` | Implement `reset()` and `shuffle()`; includes Fisher–Yates (`rand`) and a simple custom RNG variant. |
 
 ---
 
@@ -200,6 +204,7 @@ algotics/
 │       ├── symmetric_tree.rs
 │       ├── reverse_string.rs
 │       └── reverse_integer.rs
+│       ├── shuffle_an_array.rs
 ├── Cargo.toml
 ├── rustfmt.toml
 ├── clippy.toml
