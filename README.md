@@ -117,6 +117,9 @@ cargo test shuffle_an_array
 # Fizz Buzz
 cargo test fizz_buzz
 
+# Count Primes
+cargo test count_primes
+
 # Everything under `top_interview`
 cargo test top_interview
 
@@ -166,6 +169,7 @@ cargo test
 | **Symmetric Tree** | `symmetric_tree` | Check whether a binary tree is a mirror of itself (left and right subtrees mirror-matched recursively). |
 | **Shuffle an Array** | `shuffle_an_array` | Implement `reset()` and `shuffle()`; includes Fisher–Yates (`rand`) and a simple custom RNG variant. |
 | **Fizz Buzz** | `fizz_buzz` | Generate strings from `1..=n` with “Fizz”/“Buzz”/“FizzBuzz” divisibility rules. |
+| **Count Primes** | `count_primes` | Count primes `< n` with a sieve (`O(n log log n)` time, `O(n)` space). |
 
 ---
 
@@ -210,6 +214,7 @@ algotics/
 │       └── reverse_integer.rs
 │       ├── shuffle_an_array.rs
 │       ├── fizz_buzz.rs
+│       ├── count_primes.rs
 ├── Cargo.toml
 ├── rustfmt.toml
 ├── clippy.toml

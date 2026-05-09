@@ -2,6 +2,7 @@ pub mod best_time_to_buy_and_sell_stock;
 pub mod best_time_to_buy_and_sell_stock_2;
 pub mod climbing_stairs;
 pub mod contains_duplicate;
+pub mod count_primes;
 pub mod first_bad_version;
 pub mod first_unique_character_in_a_string;
 pub mod fizz_buzz;
