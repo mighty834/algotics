@@ -29,3 +29,4 @@ pub mod valid_anagram;
 pub mod valid_palindrome;
 pub mod valid_sudoku;
 pub mod validate_binary_search_tree;
+pub mod house_robber;

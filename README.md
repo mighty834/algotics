@@ -90,6 +90,9 @@ cargo test merge_sorted_array
 # Palindrome Linked List
 cargo test palindrome_linked_list
 
+# House Robber
+cargo test house_robber
+
 # Maximum Subarray
 cargo test maximum_subarray
 
@@ -150,6 +153,7 @@ cargo test
 | **Merge Two Sorted Lists** | `merge_two_sorted_lists` | Merge two sorted linked lists into one sorted list (collect values, sort, rebuild new nodes). |
 | **Merge Sorted Array** | `merge_sorted_array` | Merge two sorted vectors into `nums1` (length `m+n`): drain tail, insert each `nums2` head into sorted position (`insert` / `remove(0)`). |
 | **Palindrome Linked List** | `palindrome_linked_list` | Check if a linked list is a palindrome (collect values and compare mirrored halves). |
+| **House Robber** | `house_robber` | DP: at each house take `dp[i-2] + nums[i]` vs skip `dp[i-1]`; rolling two-state implementation (`O(n)` time, `O(1)` space). |
 | **Maximum Subarray** | `maximum_subarray` | Max sum over a non-empty contiguous subarray (Kadane-style one-pass DP with running best). |
 | **Maximum Depth of Binary Tree** | `maximum_depth_of_binary_tree` | Compute tree height via DFS recursion; return the longest root-to-leaf path length. |
 | **Validate Binary Search Tree** | `validate_binary_search_tree` | Validate BST ordering (strict inequalities) across the whole tree. |
@@ -189,6 +193,7 @@ algotics/
 │       ├── merge_two_sorted_lists.rs
 │       ├── merge_sorted_array.rs
 │       ├── palindrome_linked_list.rs
+│       ├── house_robber.rs
 │       ├── maximum_subarray.rs
 │       ├── maximum_depth_of_binary_tree.rs
 │       ├── validate_binary_search_tree.rs
