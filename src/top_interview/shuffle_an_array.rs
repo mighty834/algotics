@@ -1,4 +1,3 @@
-use crate::top_interview::maximum_subarray::Solutions;
 /// # Shuffle an Array
 ///
 /// Given an integer array `nums`, design an algorithm to randomly shuffle the array.
@@ -39,7 +38,7 @@ use crate::top_interview::maximum_subarray::Solutions;
 ///
 /// - A correct solution should ensure that each permutation is equally likely
 ///   (e.g., using the Fisher–Yates shuffle).
-use rand::{Rng, RngExt};
+use rand::RngExt;
 
 pub trait Solution {
     fn new(nums: Vec<i32>) -> Self

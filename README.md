@@ -114,6 +114,9 @@ cargo test reverse_integer
 # Shuffle an Array
 cargo test shuffle_an_array
 
+# Fizz Buzz
+cargo test fizz_buzz
+
 # Everything under `top_interview`
 cargo test top_interview
 
@@ -162,6 +165,7 @@ cargo test
 | **Validate Binary Search Tree** | `validate_binary_search_tree` | Validate BST ordering (strict inequalities) across the whole tree. |
 | **Symmetric Tree** | `symmetric_tree` | Check whether a binary tree is a mirror of itself (left and right subtrees mirror-matched recursively). |
 | **Shuffle an Array** | `shuffle_an_array` | Implement `reset()` and `shuffle()`; includes Fisher–Yates (`rand`) and a simple custom RNG variant. |
+| **Fizz Buzz** | `fizz_buzz` | Generate strings from `1..=n` with “Fizz”/“Buzz”/“FizzBuzz” divisibility rules. |
 
 ---
 
@@ -205,6 +209,7 @@ algotics/
 │       ├── reverse_string.rs
 │       └── reverse_integer.rs
 │       ├── shuffle_an_array.rs
+│       ├── fizz_buzz.rs
 ├── Cargo.toml
 ├── rustfmt.toml
 ├── clippy.toml

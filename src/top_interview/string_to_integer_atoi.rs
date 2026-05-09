@@ -161,7 +161,8 @@ impl Solutions {
     }
 }
 
-mod string_to_integer_atoi {
+#[cfg(test)]
+mod string_to_integer_atoi_tests {
     use super::*;
 
     macro_rules! test_case {
