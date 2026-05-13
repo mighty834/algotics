@@ -87,10 +87,7 @@ impl Solution for FisherYatesSolution {
 
         for i in 0..temp.len() {
             let second_i = rng.random_range(i..temp.len());
-            let inner_temp = temp[i];
-
-            temp[i] = temp[second_i];
-            temp[second_i] = inner_temp;
+            temp.swap(i, second_i);
         }
 
         temp

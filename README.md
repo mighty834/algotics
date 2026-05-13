@@ -45,6 +45,9 @@ cargo test intersection_of_two_arrays_2
 # Plus One
 cargo test plus_one
 
+# Power of Three
+cargo test power_of_three
+
 # Move Zeroes
 cargo test move_zeroes
 
@@ -145,6 +148,7 @@ cargo test
 | **Single Number** | `single_number` | Find the unique element when every other value appears exactly twice. |
 | **Intersection of Two Arrays II** | `intersection_of_two_arrays_2` | Return common values with multiplicity using sort + two pointers. |
 | **Plus One** | `plus_one` | Increment a big-endian digit vector by one (carry from the right). |
+| **Power of Three** | `power_of_three` | Check if `n` is `3^k` by scaling from `3` with `checked_mul` until `pow >= n`. |
 | **Move Zeroes** | `move_zeroes` | Move all zeroes to the end while preserving non-zero order. |
 | **Two Sum** | `two_sum` | Return indices of two values whose sum equals the target. |
 | **Valid Sudoku** | `valid_sudoku` | Check a 9×9 board: no duplicate digits in any row, column, or 3×3 box. |
@@ -190,6 +194,7 @@ algotics/
 │       ├── single_number.rs
 │       ├── intersection_of_two_arrays_2.rs
 │       ├── plus_one.rs
+│       ├── power_of_three.rs
 │       ├── move_zeroes.rs
 │       ├── two_sum.rs
 │       ├── valid_sudoku.rs

@@ -82,11 +82,11 @@ impl Solutions {
         let (mut prev, mut curr) = (0, nums[0]);
         for i in 1..nums.len() {
             if nums[i] + prev > curr {
-                curr = curr + prev;
+                curr += prev;
                 prev = curr - prev;
-                curr = curr - prev;
+                curr -= prev;
 
-                curr = nums[i] + curr;
+                curr += nums[i];
             } else {
                 prev = curr;
             }
