@@ -23,6 +23,7 @@ pub mod remove_nth_node_from_end_of_the_list;
 pub mod reverse_integer;
 pub mod reverse_linked_list;
 pub mod reverse_string;
+pub mod roman_to_integer;
 pub mod rotate_array;
 pub mod rotate_image;
 pub mod shuffle_an_array;
