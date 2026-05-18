@@ -51,6 +51,9 @@ cargo test power_of_three
 # Move Zeroes
 cargo test move_zeroes
 
+# Number of 1 Bits
+cargo test number_of_1_bits
+
 # Two Sum
 cargo test two_sum
 
@@ -153,6 +156,7 @@ cargo test
 | **Plus One** | `plus_one` | Increment a big-endian digit vector by one (carry from the right). |
 | **Power of Three** | `power_of_three` | Check if `n` is `3^k` by scaling from `3` with `checked_mul` until `pow >= n`. |
 | **Move Zeroes** | `move_zeroes` | Move all zeroes to the end while preserving non-zero order. |
+| **Number of 1 Bits** | `number_of_1_bits` | Count set bits in `n` (Hamming weight) via `i32::count_ones` / hardware popcount. |
 | **Two Sum** | `two_sum` | Return indices of two values whose sum equals the target. |
 | **Valid Sudoku** | `valid_sudoku` | Check a 9×9 board: no duplicate digits in any row, column, or 3×3 box. |
 | **Valid Anagram** | `valid_anagram` | Check whether two strings are anagrams by comparing their sorted character sequences. |
@@ -200,6 +204,7 @@ algotics/
 │       ├── plus_one.rs
 │       ├── power_of_three.rs
 │       ├── move_zeroes.rs
+│       ├── number_of_1_bits.rs
 │       ├── two_sum.rs
 │       ├── valid_sudoku.rs
 │       ├── valid_anagram.rs

@@ -15,6 +15,7 @@ pub mod maximum_subarray;
 pub mod merge_sorted_array;
 pub mod merge_two_sorted_lists;
 pub mod move_zeroes;
+pub mod number_of_1_bits;
 pub mod palindrome_linked_list;
 pub mod plus_one;
 pub mod power_of_three;
