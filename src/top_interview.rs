@@ -6,6 +6,7 @@ pub mod count_primes;
 pub mod first_bad_version;
 pub mod first_unique_character_in_a_string;
 pub mod fizz_buzz;
+pub mod hamming_distance;
 pub mod house_robber;
 pub mod implement_str_str;
 pub mod intersection_of_two_arrays_2;
