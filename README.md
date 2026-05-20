@@ -120,6 +120,9 @@ cargo test reverse_string
 # Reverse Integer
 cargo test reverse_integer
 
+# Reverse Bits
+cargo test reverse_bits
+
 # Roman to Integer
 cargo test roman_to_integer
 
@@ -167,6 +170,7 @@ cargo test
 | **Valid Palindrome** | `valid_palindrome` | Check whether a string reads the same forward and backward after lowercasing and stripping non-alphanumeric characters. |
 | **Reverse String** | `reverse_string` | Reverse a `Vec<char>` in place (`Vec::reverse`) and an iterator-based variant. |
 | **Reverse Integer** | `reverse_integer` | Reverse decimal digits of a signed 32-bit integer; return `0` on overflow. |
+| **Reverse Bits** | `reverse_bits` | Reverse all 32 bits of `n` (`u32::reverse_bits`, string reversal, or manual index loop). |
 | **Roman to Integer** | `roman_to_integer` | Scan left-to-right; subtract when `I`/`X`/`C` precedes a larger symbol (IV, IX, XL, …). |
 | **First Unique Character in a String** | `first_unique_character_in_a_string` | Return the zero-based index of the first non-repeating character, or `-1` if none exists. |
 | **First Bad Version** | `first_bad_version` | Binary search on `1..=n` with `isBadVersion`; midpoint via `u32` to avoid `i32` overflow. |
@@ -231,6 +235,7 @@ algotics/
 │       ├── symmetric_tree.rs
 │       ├── reverse_string.rs
 │       ├── reverse_integer.rs
+│       ├── reverse_bits.rs
 │       ├── roman_to_integer.rs
 │       ├── shuffle_an_array.rs
 │       ├── fizz_buzz.rs

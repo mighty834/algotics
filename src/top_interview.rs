@@ -22,6 +22,7 @@ pub mod plus_one;
 pub mod power_of_three;
 pub mod remove_duplicates_from_sorted_array;
 pub mod remove_nth_node_from_end_of_the_list;
+pub mod reverse_bits;
 pub mod reverse_integer;
 pub mod reverse_linked_list;
 pub mod reverse_string;
