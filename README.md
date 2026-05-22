@@ -51,6 +51,9 @@ cargo test power_of_three
 # Move Zeroes
 cargo test move_zeroes
 
+# Missing Number
+cargo test missing_number
+
 # Number of 1 Bits
 cargo test number_of_1_bits
 
@@ -168,6 +171,7 @@ cargo test
 | **Plus One** | `plus_one` | Increment a big-endian digit vector by one (carry from the right). |
 | **Power of Three** | `power_of_three` | Check if `n` is `3^k` by scaling from `3` with `checked_mul` until `pow >= n`. |
 | **Move Zeroes** | `move_zeroes` | Move all zeroes to the end while preserving non-zero order. |
+| **Missing Number** | `missing_number` | Find the sole absent value in `[0, n]` given `n` distinct entries from that range (`HashSet` scan). |
 | **Number of 1 Bits** | `number_of_1_bits` | Count set bits in `n` (Hamming weight) via `i32::count_ones` / hardware popcount. |
 | **Hamming Distance** | `hamming_distance` | Count differing bits between `x` and `y` by comparing reversed binary digit strings. |
 | **Two Sum** | `two_sum` | Return indices of two values whose sum equals the target. |
@@ -220,6 +224,7 @@ algotics/
 │       ├── plus_one.rs
 │       ├── power_of_three.rs
 │       ├── move_zeroes.rs
+│       ├── missing_number.rs
 │       ├── number_of_1_bits.rs
 │       ├── hamming_distance.rs
 │       ├── two_sum.rs
