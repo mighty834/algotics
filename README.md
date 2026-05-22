@@ -69,6 +69,9 @@ cargo test valid_anagram
 # Valid Palindrome
 cargo test valid_palindrome
 
+# Valid Parentheses
+cargo test valid_parentheses
+
 # First Unique Character in a String
 cargo test first_unique_character_in_a_string
 
@@ -171,6 +174,7 @@ cargo test
 | **Valid Sudoku** | `valid_sudoku` | Check a 9×9 board: no duplicate digits in any row, column, or 3×3 box. |
 | **Valid Anagram** | `valid_anagram` | Check whether two strings are anagrams by comparing their sorted character sequences. |
 | **Valid Palindrome** | `valid_palindrome` | Check whether a string reads the same forward and backward after lowercasing and stripping non-alphanumeric characters. |
+| **Valid Parentheses** | `valid_parentheses` | Check balanced `()`, `{}`, `[]` with a stack; each closer must match the top opener. |
 | **Reverse String** | `reverse_string` | Reverse a `Vec<char>` in place (`Vec::reverse`) and an iterator-based variant. |
 | **Reverse Integer** | `reverse_integer` | Reverse decimal digits of a signed 32-bit integer; return `0` on overflow. |
 | **Reverse Bits** | `reverse_bits` | Reverse all 32 bits of `n` (`u32::reverse_bits`, string reversal, or manual index loop). |
@@ -222,6 +226,7 @@ algotics/
 │       ├── valid_sudoku.rs
 │       ├── valid_anagram.rs
 │       ├── valid_palindrome.rs
+│       ├── valid_parentheses.rs
 │       ├── first_bad_version.rs
 │       ├── first_unique_character_in_a_string.rs
 │       ├── string_to_integer_atoi.rs
