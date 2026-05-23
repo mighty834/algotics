@@ -120,6 +120,9 @@ cargo test maximum_subarray
 # Maximum Depth of Binary Tree
 cargo test maximum_depth_of_binary_tree
 
+# Binary Tree Level Order Traversal
+cargo test binary_tree_level_order_traversal
+
 # Validate Binary Search Tree
 cargo test validate_binary_search_tree
 
@@ -201,6 +204,7 @@ cargo test
 | **House Robber** | `house_robber` | DP: at each house take `dp[i-2] + nums[i]` vs skip `dp[i-1]`; rolling two-state implementation (`O(n)` time, `O(1)` space). |
 | **Maximum Subarray** | `maximum_subarray` | Max sum over a non-empty contiguous subarray (Kadane-style one-pass DP with running best). |
 | **Maximum Depth of Binary Tree** | `maximum_depth_of_binary_tree` | Compute tree height via DFS recursion; return the longest root-to-leaf path length. |
+| **Binary Tree Level Order Traversal** | `binary_tree_level_order_traversal` | BFS-by-level `Vec<Vec<i32>>`; recursive level pass moves children with `Option::take` (no `Rc` clone). |
 | **Validate Binary Search Tree** | `validate_binary_search_tree` | Validate BST ordering (strict inequalities) across the whole tree. |
 | **Symmetric Tree** | `symmetric_tree` | Check whether a binary tree is a mirror of itself (left and right subtrees mirror-matched recursively). |
 | **Shuffle an Array** | `shuffle_an_array` | Implement `reset()` and `shuffle()`; includes Fisher–Yates (`rand`) and a simple custom RNG variant. |
@@ -251,6 +255,7 @@ algotics/
 │       ├── house_robber.rs
 │       ├── maximum_subarray.rs
 │       ├── maximum_depth_of_binary_tree.rs
+│       ├── binary_tree_level_order_traversal.rs
 │       ├── validate_binary_search_tree.rs
 │       ├── symmetric_tree.rs
 │       ├── reverse_string.rs

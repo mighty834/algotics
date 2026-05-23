@@ -1,5 +1,6 @@
 pub mod best_time_to_buy_and_sell_stock;
 pub mod best_time_to_buy_and_sell_stock_2;
+pub mod binary_tree_level_order_traversal;
 pub mod climbing_stairs;
 pub mod contains_duplicate;
 pub mod count_primes;
