@@ -102,6 +102,9 @@ cargo test merge_two_sorted_lists
 # Merge Sorted Array
 cargo test merge_sorted_array
 
+# Min Stack
+cargo test min_stack
+
 # Palindrome Linked List
 cargo test palindrome_linked_list
 
@@ -192,6 +195,7 @@ cargo test
 | **Reverse Linked List** | `reverse_linked_list` | Reverse a singly linked list by collecting values and rebuilding with prepended nodes (`fold`). |
 | **Merge Two Sorted Lists** | `merge_two_sorted_lists` | Merge two sorted linked lists into one sorted list (collect values, sort, rebuild new nodes). |
 | **Merge Sorted Array** | `merge_sorted_array` | Merge two sorted vectors into `nums1` (length `m+n`): drain tail, insert each `nums2` head into sorted position (`insert` / `remove(0)`). |
+| **Min Stack** | `min_stack` | Stack with `push`, `pop`, `top`, and `get_min`; this version scans for the minimum (`O(n)`); notes cover O(1) auxiliary stack. |
 | **Palindrome Linked List** | `palindrome_linked_list` | Check if a linked list is a palindrome (collect values and compare mirrored halves). |
 | **Pascal's Triangle** | `pascal_triangle` | Return the first `num_rows` of Pascal's triangle; each interior cell is the sum of the two above. |
 | **House Robber** | `house_robber` | DP: at each house take `dp[i-2] + nums[i]` vs skip `dp[i-1]`; rolling two-state implementation (`O(n)` time, `O(1)` space). |
@@ -241,6 +245,7 @@ algotics/
 │       ├── reverse_linked_list.rs
 │       ├── merge_two_sorted_lists.rs
 │       ├── merge_sorted_array.rs
+│       ├── min_stack.rs
 │       ├── palindrome_linked_list.rs
 │       ├── pascal_triangle.rs
 │       ├── house_robber.rs

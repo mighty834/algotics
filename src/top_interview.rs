@@ -15,6 +15,7 @@ pub mod maximum_depth_of_binary_tree;
 pub mod maximum_subarray;
 pub mod merge_sorted_array;
 pub mod merge_two_sorted_lists;
+pub mod min_stack;
 pub mod missing_number;
 pub mod move_zeroes;
 pub mod number_of_1_bits;
